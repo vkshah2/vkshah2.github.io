@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Your Name</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #92400e;
+            --primary-dark: #78350f;
+            --accent: #d97706;
+            --text-primary: #1c1917;
+            --text-secondary: #57534e;
+            --bg-primary: #fafaf9;
+            --bg-secondary: #fef3c7;
+            --border: #e7e5e4;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--bg-primary);
+        }
+
+        /* Navigation */
+        nav {
+            background: var(--bg-primary);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--primary);
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--text-primary);
+            transition: 0.3s;
+        }
+
+        /* About Container */
+        .about-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .about-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: var(--bg-secondary);
+            margin: 0 auto 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            border: 4px solid var(--border);
+        }
+
+        .about-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .about-header .subtitle {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+        }
+
+        .about-content {
+            background: white;
+            border-radius: 0.75rem;
+            padding: 2rem;
+            border: 1px solid var(--border);
+            margin-bottom: 2rem;
+        }
+
+        .about-content h2 {
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .about-content p {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        .about-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Skills Section */
+        .skills-section {
+            background: white;
+            border-radius: 0.75rem;
+            padding: 2rem;
+            border: 1px solid var(--border);
+            margin-bottom: 2rem;
+        }
+
+        .skills-section h2 {
+            font-size: 1.75rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skill-category h3 {
+            font-size: 1.125rem;
+            margin-bottom: 0.75rem;
+            color: var(--primary);
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-list li {
+            padding: 0.5rem 0;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .skill-list li::before {
+            content: '▸';
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        /* Timeline Section */
+        .timeline-section {
+            background: white;
+            border-radius: 0.75rem;
+            padding: 2rem;
+            border: 1px solid var(--border);
+            margin-bottom: 2rem;
+        }
+
+        .timeline-section h2 {
+            font-size: 1.75rem;
+            margin-bottom: 2rem;
+            color: var(--text-primary);
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--border);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2rem;
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2.375rem;
+            top: 0.25rem;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--primary);
+            border: 3px solid var(--bg-primary);
+        }
+
+        .timeline-date {
+            font-size: 0.875rem;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .timeline-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .timeline-subtitle {
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-description {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: var(--bg-secondary);
+            border-radius: 0.75rem;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .contact-section h2 {
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .contact-section p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-links {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .contact-btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+        }
+
+        .contact-btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border);
+            padding: 2rem;
+            text-align: center;
+            color: var(--text-secondary);
+            margin-top: 4rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+
+        .social-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: flex;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                flex-direction: column;
+                background: var(--bg-primary);
+                padding: 1rem 2rem;
+                gap: 1rem;
+                display: none;
+                border-bottom: 1px solid var(--border);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .about-header h1 {
+                font-size: 2rem;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">Your Name</a>
+            <div class="menu-toggle" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="links.html">Links</a></li>
+                <li><a href="about.html" class="active">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- About Container -->
+    <div class="about-container">
+        <!-- Header -->
+        <div class="about-header">
+            <div class="profile-image">👤</div>
+            <h1>About Me</h1>
+            <p class="subtitle">Developer, Designer, & Lifelong Learner</p>
+        </div>
+
+        <!-- Bio Section -->
+        <div class="about-content">
+            <h2>Hello! 👋</h2>
+            <p>
+                I'm a passionate web developer and designer based in [Your Location]. I love creating beautiful, functional websites and applications that solve real problems and provide great user experiences.
+            </p>
+            <p>
+                My journey into web development started [X years ago] when I built my first website. Since then, I've been continuously learning and exploring new technologies, frameworks, and design patterns. I believe in writing clean, maintainable code and creating intuitive, accessible interfaces.
+            </p>
+            <p>
+                When I'm not coding, you can find me reading about the latest tech trends, contributing to open-source projects, or exploring new coffee shops in my city. I'm always excited to connect with fellow developers and designers, so feel free to reach out!
+            </p>
+        </div>
+
+        <!-- Skills Section -->
+        <div class="skills-section">
+            <h2>Skills & Technologies</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Frontend</h3>
+                    <ul class="skill-list">
+                        <li>HTML5 & CSS3</li>
+                        <li>JavaScript (ES6+)</li>
+                        <li>React & Next.js</li>
+                        <li>Tailwind CSS</li>
+                        <li>Responsive Design</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Backend</h3>
+                    <ul class="skill-list">
+                        <li>Node.js & Express</li>
+                        <li>Python & Django</li>
+                        <li>RESTful APIs</li>
+                        <li>PostgreSQL & MongoDB</li>
+                        <li>Authentication & Security</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Tools & Others</h3>
+                    <ul class="skill-list">
+                        <li>Git & GitHub</li>
+                        <li>VS Code</li>
+                        <li>Figma & Adobe XD</li>
+                        <li>Docker</li>
+                        <li>Agile Methodologies</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Timeline Section -->
+        <div class="timeline-section">
+            <h2>Experience & Education</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">2023 - Present</div>
+                    <div class="timeline-title">Senior Web Developer</div>
+                    <div class="timeline-subtitle">Tech Company Inc.</div>
+                    <p class="timeline-description">
+                        Leading frontend development for enterprise web applications. Mentoring junior developers and implementing best practices across the team.
+                    </p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2021 - 2023</div>
+                    <div class="timeline-title">Full Stack Developer</div>
+                    <div class="timeline-subtitle">Startup Co.</div>
+                    <p class="timeline-description">
+                        Built and maintained multiple client projects using React, Node.js, and PostgreSQL. Worked directly with clients to understand requirements and deliver solutions.
+                    </p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2019 - 2021</div>
+                    <div class="timeline-title">Junior Developer</div>
+                    <div class="timeline-subtitle">Web Agency</div>
+                    <p class="timeline-description">
+                        Developed responsive websites and web applications. Collaborated with designers and senior developers to deliver high-quality projects.
+                    </p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2015 - 2019</div>
+                    <div class="timeline-title">Bachelor's in Computer Science</div>
+                    <div class="timeline-subtitle">University Name</div>
+                    <p class="timeline-description">
+                        Studied computer science fundamentals, algorithms, data structures, and software engineering principles. Graduated with honors.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Section -->
+        <div class="contact-section">
+            <h2>Let's Connect!</h2>
+            <p>I'm always interested in hearing about new projects and opportunities.</p>
+            <div class="contact-links">
+                <a href="mailto:your.email@example.com" class="contact-btn">Send Email</a>
+                <a href="#" class="contact-btn">LinkedIn</a>
+                <a href="#" class="contact-btn">GitHub</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="social-links">
+            <a href="#">GitHub</a>
+            <a href="#">Twitter</a>
+            <a href="#">LinkedIn</a>
+            <a href="#">Email</a>
+        </div>
+        <p>&copy; 2025 Your Name. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Links - Your Name</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #92400e;
+            --primary-dark: #78350f;
+            --accent: #d97706;
+            --text-primary: #1c1917;
+            --text-secondary: #57534e;
+            --bg-primary: #fafaf9;
+            --bg-secondary: #fef3c7;
+            --border: #e7e5e4;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--bg-primary);
+        }
+
+        /* Navigation */
+        nav {
+            background: var(--bg-primary);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--primary);
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--text-primary);
+            transition: 0.3s;
+        }
+
+        /* Page Header */
+        .page-header {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem 2rem;
+        }
+
+        .page-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .page-header p {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+        }
+
+        /* Links Container */
+        .links-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .links-section {
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            font-size: 1.75rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .section-title::before {
+            content: '';
+            width: 4px;
+            height: 1.5rem;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .link-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: block;
+        }
+
+        .link-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(146, 64, 14, 0.15);
+            border-color: var(--primary);
+        }
+
+        .link-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .link-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--bg-secondary);
+            border-radius: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .link-info {
+            flex: 1;
+        }
+
+        .link-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .link-url {
+            font-size: 0.875rem;
+            color: var(--accent);
+            word-break: break-all;
+        }
+
+        .link-description {
+            color: var(--text-secondary);
+            font-size: 0.9375rem;
+            line-height: 1.5;
+        }
+
+        .link-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        .tag {
+            background: var(--bg-secondary);
+            color: var(--primary-dark);
+            padding: 0.25rem 0.625rem;
+            border-radius: 1rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border);
+            padding: 2rem;
+            text-align: center;
+            color: var(--text-secondary);
+            margin-top: 4rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+
+        .social-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: flex;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                flex-direction: column;
+                background: var(--bg-primary);
+                padding: 1rem 2rem;
+                gap: 1rem;
+                display: none;
+                border-bottom: 1px solid var(--border);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+            .links-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">Your Name</a>
+            <div class="menu-toggle" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="links.html" class="active">Links</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <h1>Links & Resources</h1>
+        <p>A curated collection of websites, tools, and resources I find useful and interesting</p>
+    </div>
+
+    <!-- Links Container -->
+    <div class="links-container">
+        <!-- Development Tools -->
+        <section class="links-section">
+            <h2 class="section-title">Development Tools</h2>
+            <div class="links-grid">
+                <a href="https://github.com" class="link-card" target="_blank" rel="noopener">
+                    <div class="link-header">
+                        <div class="link-icon">🐙</div>
+                        <div class="link-info">
+                            <div class="link-title">GitHub</div>
+                            <div class="link-url">github.com</div>
+                        </div>
+                    </div>
+                    <p class="link-description">
+                        The world's leading platform for version control and collaboration. Essential for any developer.
+                    </p>
+                    <div class="link-tags">
+                        <span class="tag">Git</span>
+                        <span class="tag">Collaboration</span>
+                    </div>
+                </a>
+
+                <a href="https://code.visualstudio.com" class="link-card" target="_blank" rel="noopener">
+                    <div class="link-header">
+                        <div class="link-icon">💻</div>
+                        <div class="link-info">
+                            <div class="link-title">VS Code</div>
+                            <div class="link-url">code.visualstudio.com</div>
+                        </div>
+                    </div>
+                    <p class="link-description">
+                        My favorite code editor. Lightweight, powerful, and with an amazing extension ecosystem.
+                    </p>
+                    <div class="link-tags">
+                        <span class="tag">Editor</span>
+                        <span class="tag">IDE</span>
+                    </div>
+                </a>
+
+                <a href="https://stackoverflow.com" class="link-card" target="_blank" rel="noopener">
+                    <div class="link-header">
+                        <div class="link-icon">📚</div>
+                        <div class="link-info">
+                            <div class="link-title">Stack Overflow</div>
+                            <div class="link-url">stackoverflow.com</div>
+                        </div>
+                    </div>
+                    <p class="link-description">
+                        The go-to Q&A platform for developers. If you have a coding question, someone has probably answered it here.
+                    </p>
+                    <div class="link-tags">
+                        <span class="tag">Q&A</span>
+                        <span class="tag">Community</span>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- Design Resources -->
+        <section class="links-section">
+            <h2 class="section-title">Design Resources</h2>
+            <div class="links-grid">
+                <a href="https://dribbble.com" class="link-card" target="_blank" rel="noopener">
+                    <div class="link-header">
+                        <div class="link-icon">🎨</div>
+                        <div class="link-info">
+                            <div class="link-title">Dribbble</div>
+                            <div class="link-url">dribbble.com</div>
+                        </div>
+                    </div>
+                    <p class="link-description">
+                        A community of designers sharing their work. Great for inspiration and discovering design trends.
+                    </p>
+                    <div class="link-tags">
+                        <span class="tag">Inspiration</span>
+                        <span class="tag">Design</span>
+                    </div>
+                </a>
+
+                <a href="https://fonts.google.com" class="link-card" target="_blank" rel="noopener">
+                    <div class="link-header">
+                        <div class="link-icon">🔤</div>
+                        <div class="link-info">
+                            <div class="link-title">Google Fonts</div>
+                            <div class="link-url">fonts.google.com</div>
+                        </div>
+                    </div>
+                    <p class="link-description">
+                        Free, open-source fonts optimized for the web. Easy to use and beautiful typography.
+                    </p>
+                    <div class="link-tags">
+                        <span class="tag">Typography</span>
+                        <span class="tag">Free</span>
+                    </div>
+                </a>
+
+                <a href="https://coolors.co" class="link-card" target="_blank" rel="noopener">
+                    <div class="link-header">
+                        <div class="link-icon">🎨</div>
+                        <div class="link-info">
+                            <div class="link-title">Coolors</div>
+                            <div class="link-url">coolors.co</div>
+                        </div>
+                    </div>
+                    <p class="link-description">
+                        Fast color palette generator. Perfect for quickly creating beautiful color schemes.
+                    </p>
+                    <div class="link-tags">
+                        <span class="tag">Colors</span>
+                        <span class="tag">Tool</span>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- Learning Resources -->
+        <section class="links-section">
+            <h2 class="section-title">Learning Resources</h2>
+            <div class="links-grid">
+                <a href="https://developer.mozilla.org" class="link-card" target="_blank" rel="noopener">
+                    <div class="link-header">
+                        <div class="link-icon">📖</div>
+                        <div class="link-info">
+                            <div class="link-title">MDN Web Docs</div>
+                            <div class="link-url">developer.mozilla.org</div>
+                        </div>
+                    </div>
+                    <p class="link-description">
+                        The most comprehensive and accurate web development documentation. A must-bookmark for any web developer.
+                    </p>
+                    <div class="link-tags">
+                        <span class="tag">Documentation</span>
+                        <span class="tag">Reference</span>
+                    </div>
+                </a>
+
+                <a href="https://www.freecodecamp.org" class="link-card" target="_blank" rel="noopener">
+                    <div class="link-header">
+                        <div class="link-icon">🎓</div>
+                        <div class="link-info">
+                            <div class="link-title">freeCodeCamp</div>
+                            <div class="link-url">freecodecamp.org</div>
+                        </div>
+                    </div>
+                    <p class="link-description">
+                        Learn to code for free with interactive lessons and certifications. Great for beginners and experienced developers.
+                    </p>
+                    <div class="link-tags">
+                        <span class="tag">Tutorial</span>
+                        <span class="tag">Free</span>
+                    </div>
+                </a>
+
+                <a href="https://css-tricks.com" class="link-card" target="_blank" rel="noopener">
+                    <div class="link-header">
+                        <div class="link-icon">✨</div>
+                        <div class="link-info">
+                            <div class="link-title">CSS-Tricks</div>
+                            <div class="link-url">css-tricks.com</div>
+                        </div>
+                    </div>
+                    <p class="link-description">
+                        Articles, guides, and resources about CSS and web design. Excellent tutorials and tips.
+                    </p>
+                    <div class="link-tags">
+                        <span class="tag">CSS</span>
+                        <span class="tag">Tutorial</span>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- Productivity -->
+        <section class="links-section">
+            <h2 class="section-title">Productivity</h2>
+            <div class="links-grid">
+                <a href="https://notion.so" class="link-card" target="_blank" rel="noopener">
+                    <div class="link-header">
+                        <div class="link-icon">📝</div>
+                        <div class="link-info">
+                            <div class="link-title">Notion</div>
+                            <div class="link-url">notion.so</div>
+                        </div>
+                    </div>
+                    <p class="link-description">
+                        All-in-one workspace for notes, tasks, wikis, and databases. My go-to tool for organization.
+                    </p>
+                    <div class="link-tags">
+                        <span class="tag">Notes</span>
+                        <span class="tag">Organization</span>
+                    </div>
+                </a>
+
+                <a href="https://todoist.com" class="link-card" target="_blank" rel="noopener">
+                    <div class="link-header">
+                        <div class="link-icon">✅</div>
+                        <div class="link-info">
+                            <div class="link-title">Todoist</div>
+                            <div class="link-url">todoist.com</div>
+                        </div>
+                    </div>
+                    <p class="link-description">
+                        Simple yet powerful task manager. Helps me stay on top of everything I need to do.
+                    </p>
+                    <div class="link-tags">
+                        <span class="tag">Tasks</span>
+                        <span class="tag">GTD</span>
+                    </div>
+                </a>
+
+                <a href="https://raindrop.io" class="link-card" target="_blank" rel="noopener">
+                    <div class="link-header">
+                        <div class="link-icon">🔖</div>
+                        <div class="link-info">
+                            <div class="link-title">Raindrop.io</div>
+                            <div class="link-url">raindrop.io</div>
+                        </div>
+                    </div>
+                    <p class="link-description">
+                        Beautiful bookmark manager. Perfect for organizing all those interesting links you come across.
+                    </p>
+                    <div class="link-tags">
+                        <span class="tag">Bookmarks</span>
+                        <span class="tag">Organization</span>
+                    </div>
+                </a>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="social-links">
+            <a href="#">GitHub</a>
+            <a href="#">Twitter</a>
+            <a href="#">LinkedIn</a>
+            <a href="#">Email</a>
+        </div>
+        <p>&copy; 2025 Your Name. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

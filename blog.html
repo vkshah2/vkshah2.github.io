@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Your Name</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #92400e;
+            --primary-dark: #78350f;
+            --accent: #d97706;
+            --text-primary: #1c1917;
+            --text-secondary: #57534e;
+            --bg-primary: #fafaf9;
+            --bg-secondary: #fef3c7;
+            --border: #e7e5e4;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--bg-primary);
+        }
+
+        /* Navigation */
+        nav {
+            background: var(--bg-primary);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--primary);
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--text-primary);
+            transition: 0.3s;
+        }
+
+        /* Page Header */
+        .page-header {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem 2rem;
+        }
+
+        .page-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .page-header p {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+        }
+
+        /* Filter Section */
+        .filter-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem 2rem;
+        }
+
+        .filter-tabs {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 0.5rem 1rem;
+            border: 2px solid var(--border);
+            background: transparent;
+            border-radius: 2rem;
+            cursor: pointer;
+            color: var(--text-secondary);
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        /* Blog Posts */
+        .blog-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .posts-list {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .post-item {
+            background: white;
+            border-radius: 0.75rem;
+            padding: 2rem;
+            border: 1px solid var(--border);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .post-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(146, 64, 14, 0.15);
+        }
+
+        .post-meta {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .post-date {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+        }
+
+        .post-category {
+            background: var(--bg-secondary);
+            color: var(--primary);
+            padding: 0.25rem 0.75rem;
+            border-radius: 1rem;
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+
+        .post-item h2 {
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .post-item h2 a {
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .post-item h2 a:hover {
+            color: var(--primary);
+        }
+
+        .post-excerpt {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .post-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .read-more {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .read-more:hover {
+            color: var(--primary-dark);
+        }
+
+        .read-time {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border);
+            padding: 2rem;
+            text-align: center;
+            color: var(--text-secondary);
+            margin-top: 4rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+
+        .social-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: flex;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                flex-direction: column;
+                background: var(--bg-primary);
+                padding: 1rem 2rem;
+                gap: 1rem;
+                display: none;
+                border-bottom: 1px solid var(--border);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+            .post-item h2 {
+                font-size: 1.5rem;
+            }
+
+            .post-footer {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">Your Name</a>
+            <div class="menu-toggle" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="blog.html" class="active">Blog</a></li>
+                <li><a href="links.html">Links</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <h1>Blog</h1>
+        <p>Articles, tutorials, and thoughts on web development, design, and technology</p>
+    </div>
+
+    <!-- Filter Section -->
+    <div class="filter-section">
+        <div class="filter-tabs">
+            <button class="filter-btn active" data-category="all">All Posts</button>
+            <button class="filter-btn" data-category="web-dev">Web Development</button>
+            <button class="filter-btn" data-category="design">Design</button>
+            <button class="filter-btn" data-category="productivity">Productivity</button>
+            <button class="filter-btn" data-category="tutorials">Tutorials</button>
+        </div>
+    </div>
+
+    <!-- Blog Posts -->
+    <div class="blog-container">
+        <div class="posts-list">
+            <article class="post-item" data-category="web-dev">
+                <div class="post-meta">
+                    <span class="post-date">November 20, 2025</span>
+                    <span class="post-category">Web Development</span>
+                </div>
+                <h2><a href="#">Getting Started with Web Development in 2025</a></h2>
+                <p class="post-excerpt">
+                    A comprehensive guide for beginners looking to start their journey in web development. Learn about the essential tools, technologies, and best practices that will set you up for success in the ever-evolving world of web development.
+                </p>
+                <div class="post-footer">
+                    <a href="#" class="read-more">Read full article →</a>
+                    <span class="read-time">8 min read</span>
+                </div>
+            </article>
+
+            <article class="post-item" data-category="productivity">
+                <div class="post-meta">
+                    <span class="post-date">November 15, 2025</span>
+                    <span class="post-category">Productivity</span>
+                </div>
+                <h2><a href="#">My Favorite Productivity Tools for 2025</a></h2>
+                <p class="post-excerpt">
+                    A curated list of tools and apps that help me stay productive and organized. From task management to note-taking, these are the applications I use daily to streamline my workflow and get more done.
+                </p>
+                <div class="post-footer">
+                    <a href="#" class="read-more">Read full article →</a>
+                    <span class="read-time">6 min read</span>
+                </div>
+            </article>
+
+            <article class="post-item" data-category="tutorials">
+                <div class="post-meta">
+                    <span class="post-date">November 10, 2025</span>
+                    <span class="post-category">Tutorials</span>
+                </div>
+                <h2><a href="#">Understanding CSS Grid: A Practical Guide</a></h2>
+                <p class="post-excerpt">
+                    Learn how to create responsive layouts with CSS Grid in this practical tutorial. We'll cover everything from basic grid concepts to advanced techniques for building modern, flexible layouts that work on any device.
+                </p>
+                <div class="post-footer">
+                    <a href="#" class="read-more">Read full article →</a>
+                    <span class="read-time">12 min read</span>
+                </div>
+            </article>
+
+            <article class="post-item" data-category="design">
+                <div class="post-meta">
+                    <span class="post-date">November 5, 2025</span>
+                    <span class="post-category">Design</span>
+                </div>
+                <h2><a href="#">Color Theory for Web Designers</a></h2>
+                <p class="post-excerpt">
+                    Understanding color theory is essential for creating visually appealing websites. In this article, we explore the principles of color harmony, contrast, and accessibility to help you make better design decisions.
+                </p>
+                <div class="post-footer">
+                    <a href="#" class="read-more">Read full article →</a>
+                    <span class="read-time">10 min read</span>
+                </div>
+            </article>
+
+            <article class="post-item" data-category="web-dev">
+                <div class="post-meta">
+                    <span class="post-date">October 28, 2025</span>
+                    <span class="post-category">Web Development</span>
+                </div>
+                <h2><a href="#">Building Accessible Websites: Best Practices</a></h2>
+                <p class="post-excerpt">
+                    Web accessibility ensures that everyone, regardless of ability, can use your website. Learn about WCAG guidelines, semantic HTML, ARIA attributes, and other techniques to make your sites more inclusive.
+                </p>
+                <div class="post-footer">
+                    <a href="#" class="read-more">Read full article →</a>
+                    <span class="read-time">15 min read</span>
+                </div>
+            </article>
+
+            <article class="post-item" data-category="tutorials">
+                <div class="post-meta">
+                    <span class="post-date">October 20, 2025</span>
+                    <span class="post-category">Tutorials</span>
+                </div>
+                <h2><a href="#">JavaScript Array Methods You Should Know</a></h2>
+                <p class="post-excerpt">
+                    Master the most useful JavaScript array methods including map, filter, reduce, and more. This guide includes practical examples and use cases to help you write cleaner, more efficient code.
+                </p>
+                <div class="post-footer">
+                    <a href="#" class="read-more">Read full article →</a>
+                    <span class="read-time">7 min read</span>
+                </div>
+            </article>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="social-links">
+            <a href="#">GitHub</a>
+            <a href="#">Twitter</a>
+            <a href="#">LinkedIn</a>
+            <a href="#">Email</a>
+        </div>
+        <p>&copy; 2025 Your Name. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+
+        // Filter functionality
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const posts = document.querySelectorAll('.post-item');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterBtns.forEach(b => b.classList.remove('active'));
+                // Add active class to clicked button
+                btn.classList.add('active');
+
+                const category = btn.dataset.category;
+
+                posts.forEach(post => {
+                    if (category === 'all' || post.dataset.category === category) {
+                        post.style.display = 'block';
+                    } else {
+                        post.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
