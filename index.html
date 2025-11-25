@@ -3,6 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Vinit K Shah's personal website - Developer, tech enthusiast, and lifelong learner">
+    <meta property="og:title" content="Vinit (vkshah2) - Personal Website">
+    <meta property="og:description" content="Welcome to my corner of the internet. I write about technology, share interesting finds, and curate useful resources.">
+    <meta property="og:type" content="website">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💻</text></svg>">
     <title>Vinit (vkshah2) - Personal Website</title>
     <style>
         * {
@@ -27,6 +32,22 @@
             line-height: 1.6;
             color: var(--text-primary);
             background: var(--bg-primary);
+        }
+
+        /* Skip to content link for accessibility */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--primary);
+            color: white;
+            padding: 8px;
+            text-decoration: none;
+            z-index: 200;
+        }
+
+        .skip-link:focus {
+            top: 0;
         }
 
         /* Navigation */
@@ -71,7 +92,6 @@
             color: var(--primary);
         }
 
-        /* Mobile menu toggle */
         .menu-toggle {
             display: none;
             flex-direction: column;
@@ -176,11 +196,24 @@
             padding: 1.5rem;
             transition: transform 0.3s, box-shadow 0.3s;
             border: 1px solid var(--border);
+            position: relative;
         }
 
         .post-card:hover {
             transform: translateY(-4px);
             box-shadow: 0 10px 30px rgba(146, 64, 14, 0.15);
+        }
+
+        .coming-soon-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--accent);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 1rem;
+            font-size: 0.75rem;
+            font-weight: 600;
         }
 
         .post-date {
@@ -212,6 +245,50 @@
             color: var(--primary);
             text-decoration: none;
             font-weight: 600;
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: var(--primary);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            border: none;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 12px rgba(146, 64, 14, 0.3);
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background: var(--primary-dark);
+            transform: translateY(-4px);
+        }
+
+        /* Loading Indicator */
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-secondary);
+        }
+
+        .loading.active {
+            display: block;
         }
 
         /* Footer */
@@ -274,20 +351,37 @@
             .posts-grid {
                 grid-template-columns: 1fr;
             }
+
+            .back-to-top {
+                bottom: 1rem;
+                right: 1rem;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            .menu-toggle,
+            .back-to-top,
+            .cta-buttons {
+                display: none;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Skip to content link for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
     <!-- Navigation -->
     <nav>
         <div class="nav-container">
             <a href="index.html" class="logo">Vinit</a>
-            <div class="menu-toggle" onclick="toggleMenu()">
+            <div class="menu-toggle" onclick="toggleMenu()" aria-label="Toggle navigation menu">
                 <span></span>
                 <span></span>
                 <span></span>
             </div>
-            <ul class="nav-links" id="navLinks">
+            <ul class="nav-links" id="navLinks" role="navigation">
                 <li><a href="index.html" class="active">Home</a></li>
                 <li><a href="blog.html">Blog</a></li>
                 <li><a href="links.html">Links</a></li>
@@ -297,63 +391,120 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Hi, I'm Vinit</h1>
-            <p>Welcome to my corner of the internet. I write about technology, share interesting finds, and curate useful resources.</p>
-            <div class="cta-buttons">
-                <a href="blog.html" class="btn btn-primary">Read My Blog</a>
-                <a href="about.html" class="btn btn-secondary">About Me</a>
+    <main id="main-content">
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Hi, I'm Vinit</h1>
+                <p>Welcome to my corner of the internet. I write about technology, share interesting finds, and curate useful resources.</p>
+                <div class="cta-buttons">
+                    <a href="blog.html" class="btn btn-primary">Read My Blog</a>
+                    <a href="about.html" class="btn btn-secondary">About Me</a>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Recent Posts -->
-    <section class="section">
-        <div class="section-header">
-            <h2>Recent Posts</h2>
-            <p>Thoughts, tutorials, and discoveries</p>
-        </div>
-        <div class="posts-grid">
-            <article class="post-card">
-                <div class="post-date">November 20, 2025</div>
-                <h3><a href="#">Getting Started with Web Development</a></h3>
-                <p class="post-excerpt">A comprehensive guide for beginners looking to start their journey in web development...</p>
-                <a href="#" class="read-more">Read more →</a>
-            </article>
-            <article class="post-card">
-                <div class="post-date">November 15, 2025</div>
-                <h3><a href="#">My Favorite Productivity Tools</a></h3>
-                <p class="post-excerpt">A curated list of tools and apps that help me stay productive and organized...</p>
-                <a href="#" class="read-more">Read more →</a>
-            </article>
-            <article class="post-card">
-                <div class="post-date">November 10, 2025</div>
-                <h3><a href="#">Understanding CSS Grid</a></h3>
-                <p class="post-excerpt">Learn how to create responsive layouts with CSS Grid in this practical tutorial...</p>
-                <a href="#" class="read-more">Read more →</a>
-            </article>
-        </div>
-    </section>
+        <!-- Recent Posts -->
+        <section class="section">
+            <div class="section-header">
+                <h2>Recent Posts</h2>
+                <p>Thoughts, tutorials, and discoveries</p>
+            </div>
+            <div class="posts-grid">
+                <article class="post-card">
+                    <span class="coming-soon-badge">Coming Soon</span>
+                    <div class="post-date">November 20, 2025</div>
+                    <h3><a href="#" aria-label="Getting Started with Web Development - Coming Soon">Getting Started with Web Development</a></h3>
+                    <p class="post-excerpt">A comprehensive guide for beginners looking to start their journey in web development...</p>
+                    <a href="#" class="read-more">Read more →</a>
+                </article>
+                <article class="post-card">
+                    <span class="coming-soon-badge">Coming Soon</span>
+                    <div class="post-date">November 15, 2025</div>
+                    <h3><a href="#" aria-label="My Favorite Productivity Tools - Coming Soon">My Favorite Productivity Tools</a></h3>
+                    <p class="post-excerpt">A curated list of tools and apps that help me stay productive and organized...</p>
+                    <a href="#" class="read-more">Read more →</a>
+                </article>
+                <article class="post-card">
+                    <span class="coming-soon-badge">Coming Soon</span>
+                    <div class="post-date">November 10, 2025</div>
+                    <h3><a href="#" aria-label="Understanding CSS Grid - Coming Soon">Understanding CSS Grid</a></h3>
+                    <p class="post-excerpt">Learn how to create responsive layouts with CSS Grid in this practical tutorial...</p>
+                    <a href="#" class="read-more">Read more →</a>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <!-- Loading Indicator -->
+    <div class="loading" id="loading">
+        <p>Loading content...</p>
+    </div>
 
     <!-- Footer -->
     <footer>
         <div class="social-links">
-            <a href="https://github.com/vkshah2">GitHub</a>
-            <a href="https://X.com/vkshah2">Twitter</a>
-            <a href="mailto:vkshah2@gmail.com?subject=Hi">Email</a>
+            <a href="https://github.com/vkshah2" target="_blank" rel="noopener noreferrer" aria-label="Visit my GitHub profile">GitHub</a>
+            <a href="https://X.com/vkshah2" target="_blank" rel="noopener noreferrer" aria-label="Follow me on Twitter/X">Twitter</a>
+            <a href="mailto:vkshah2@gmail.com?subject=Hi" aria-label="Send me an email">Email</a>
         </div>
         <p>&copy; 2025 Vinit K Shah. All rights reserved.</p>
     </footer>
 
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top" onclick="scrollToTop()">
+        ↑
+    </button>
+
     <script>
+        // Toggle mobile menu
         function toggleMenu() {
             const navLinks = document.getElementById('navLinks');
             navLinks.classList.toggle('active');
         }
+
+        // Back to top button functionality
+        const backToTopBtn = document.getElementById('backToTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopBtn.classList.add('visible');
+            } else {
+                backToTopBtn.classList.remove('visible');
+            }
+        });
+
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            const navLinks = document.getElementById('navLinks');
+            const menuToggle = document.querySelector('.menu-toggle');
+            
+            if (!navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
+                navLinks.classList.remove('active');
+            }
+        });
+
+        // Example of loading state (you can use this when fetching blog posts dynamically)
+        function showLoading() {
+            document.getElementById('loading').classList.add('active');
+        }
+
+        function hideLoading() {
+            document.getElementById('loading').classList.remove('active');
+        }
+
+        // Keyboard navigation improvements
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                document.getElementById('navLinks').classList.remove('active');
+            }
+        });
     </script>
 </body>
-
 </html>
-
-
