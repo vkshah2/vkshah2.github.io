@@ -223,6 +223,17 @@ Feel free to use this as a template for your own personal website!
 - **GitHub**: [@vkshah2](https://github.com/vkshah2)
 - **Twitter/X**: [@vkshah2](https://x.com/vkshah2)
 
+- ## 📝 Note
+
+This is a learning project to practice web development fundamentals:
+- HTML5 semantic structure
+- CSS3 styling and layouts
+- Vanilla JavaScript
+- Responsive design
+- GitHub Pages deployment
+
+The site is not intended for search engine indexing (`robots.txt` + meta tags).
+
 ---
 
 ⭐ If you found this helpful, consider giving it a star!
