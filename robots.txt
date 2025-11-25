@@ -1,0 +1,12 @@
+# Block all search engines and bots
+User-agent: *
+Disallow: /
+
+# If you want to allow specific bots (optional)
+# User-agent: Googlebot
+# Allow: /
+
+# Block specific paths only (alternative approach)
+# User-agent: *
+# Disallow: /blog.html
+# Disallow: /about.html
