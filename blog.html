@@ -8,292 +8,168 @@
     <link rel="stylesheet" href="styles.css">
     <title>Blog - Vinit (vkshah2)</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+       /* Blog-specific styles */
+       .page-header {
+           max-width: 1200px;
+           margin: 0 auto;
+           padding: 3rem 2rem 2rem;
+       }
 
-        :root {
-            --primary: #92400e;
-            --primary-dark: #78350f;
-            --accent: #d97706;
-            --text-primary: #1c1917;
-            --text-secondary: #57534e;
-            --bg-primary: #fafaf9;
-            --bg-secondary: #fef3c7;
-            --border: #e7e5e4;
-        }
+       .page-header h1 {
+           font-size: 2.5rem;
+           margin-bottom: 0.5rem;
+           color: var(--text-primary);
+       }
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            line-height: 1.6;
-            color: var(--text-primary);
-            background: var(--bg-primary);
-        }
+       .page-header p {
+           font-size: 1.125rem;
+           color: var(--text-secondary);
+       }
 
-        /* Navigation */
-        nav {
-            background: var(--bg-primary);
-            border-bottom: 1px solid var(--border);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
+       /* Filter Section */
+       .filter-section {
+           max-width: 1200px;
+           margin: 0 auto;
+           padding: 0 2rem 2rem;
+       }
 
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+       .filter-tabs {
+           display: flex;
+           gap: 1rem;
+           flex-wrap: wrap;
+       }
 
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary);
-            text-decoration: none;
-        }
+       .filter-btn {
+           padding: 0.5rem 1rem;
+           border: 2px solid var(--border);
+           background: transparent;
+           border-radius: 2rem;
+           cursor: pointer;
+           color: var(--text-secondary);
+           font-weight: 600;
+           transition: all 0.3s;
+       }
 
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
+       .filter-btn:hover,
+       .filter-btn.active {
+           background: var(--primary);
+           color: white;
+           border-color: var(--primary);
+       }
 
-        .nav-links a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
+       /* Blog Posts */
+       .blog-container {
+           max-width: 1200px;
+           margin: 0 auto;
+           padding: 2rem;
+       }
 
-        .nav-links a:hover,
-        .nav-links a.active {
-            color: var(--primary);
-        }
+       .posts-list {
+           display: flex;
+           flex-direction: column;
+           gap: 2rem;
+       }
 
-        .menu-toggle {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            gap: 4px;
-        }
+       .post-item {
+           background: white;
+           border-radius: 0.75rem;
+           padding: 2rem;
+           border: 1px solid var(--border);
+           transition: transform 0.3s, box-shadow 0.3s;
+       }
 
-        .menu-toggle span {
-            width: 25px;
-            height: 3px;
-            background: var(--text-primary);
-            transition: 0.3s;
-        }
+       .post-item:hover {
+           transform: translateY(-4px);
+           box-shadow: 0 10px 30px rgba(146, 64, 14, 0.15);
+       }
 
-        /* Page Header */
-        .page-header {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 3rem 2rem 2rem;
-        }
+       .post-meta {
+           display: flex;
+           gap: 1rem;
+           margin-bottom: 1rem;
+           flex-wrap: wrap;
+       }
 
-        .page-header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-            color: var(--text-primary);
-        }
+       .post-date {
+           color: var(--text-secondary);
+           font-size: 0.875rem;
+       }
 
-        .page-header p {
-            font-size: 1.125rem;
-            color: var(--text-secondary);
-        }
+       .post-category {
+           background: var(--bg-secondary);
+           color: var(--primary);
+           padding: 0.25rem 0.75rem;
+           border-radius: 1rem;
+           font-size: 0.875rem;
+           font-weight: 600;
+       }
 
-        /* Filter Section */
-        .filter-section {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem 2rem;
-        }
+       .post-item h2 {
+           font-size: 1.75rem;
+           margin-bottom: 1rem;
+       }
 
-        .filter-tabs {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
+       .post-item h2 a {
+           color: var(--text-primary);
+           text-decoration: none;
+           transition: color 0.3s;
+       }
 
-        .filter-btn {
-            padding: 0.5rem 1rem;
-            border: 2px solid var(--border);
-            background: transparent;
-            border-radius: 2rem;
-            cursor: pointer;
-            color: var(--text-secondary);
-            font-weight: 600;
-            transition: all 0.3s;
-        }
+       .post-item h2 a:hover {
+           color: var(--primary);
+       }
 
-        .filter-btn:hover,
-        .filter-btn.active {
-            background: var(--primary);
-            color: white;
-            border-color: var(--primary);
-        }
+       .post-excerpt {
+           color: var(--text-secondary);
+           margin-bottom: 1.5rem;
+           line-height: 1.7;
+       }
 
-        /* Blog Posts */
-        .blog-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
+       .post-footer {
+           display: flex;
+           justify-content: space-between;
+           align-items: center;
+       }
 
-        .posts-list {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-        }
+       .read-more {
+           color: var(--primary);
+           text-decoration: none;
+           font-weight: 600;
+           display: inline-flex;
+           align-items: center;
+           gap: 0.5rem;
+       }
 
-        .post-item {
-            background: white;
-            border-radius: 0.75rem;
-            padding: 2rem;
-            border: 1px solid var(--border);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
+       .read-more:hover {
+           color: var(--primary-dark);
+       }
 
-        .post-item:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 10px 30px rgba(146, 64, 14, 0.15);
-        }
+       .read-time {
+           color: var(--text-secondary);
+           font-size: 0.875rem;
+       }
 
-        .post-meta {
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 1rem;
-            flex-wrap: wrap;
-        }
+       footer {
+           margin-top: 4rem;
+       }
 
-        .post-date {
-            color: var(--text-secondary);
-            font-size: 0.875rem;
-        }
+       @media (max-width: 768px) {
+           .page-header h1 {
+               font-size: 2rem;
+           }
 
-        .post-category {
-            background: var(--bg-secondary);
-            color: var(--primary);
-            padding: 0.25rem 0.75rem;
-            border-radius: 1rem;
-            font-size: 0.875rem;
-            font-weight: 600;
-        }
+           .post-item h2 {
+               font-size: 1.5rem;
+           }
 
-        .post-item h2 {
-            font-size: 1.75rem;
-            margin-bottom: 1rem;
-        }
-
-        .post-item h2 a {
-            color: var(--text-primary);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .post-item h2 a:hover {
-            color: var(--primary);
-        }
-
-        .post-excerpt {
-            color: var(--text-secondary);
-            margin-bottom: 1.5rem;
-            line-height: 1.7;
-        }
-
-        .post-footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .read-more {
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .read-more:hover {
-            color: var(--primary-dark);
-        }
-
-        .read-time {
-            color: var(--text-secondary);
-            font-size: 0.875rem;
-        }
-
-        /* Footer */
-        footer {
-            background: var(--bg-secondary);
-            border-top: 1px solid var(--border);
-            padding: 2rem;
-            text-align: center;
-            color: var(--text-secondary);
-            margin-top: 4rem;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            margin-bottom: 1rem;
-        }
-
-        .social-links a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .social-links a:hover {
-            color: var(--primary);
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .menu-toggle {
-                display: flex;
-            }
-
-            .nav-links {
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                flex-direction: column;
-                background: var(--bg-primary);
-                padding: 1rem 2rem;
-                gap: 1rem;
-                display: none;
-                border-bottom: 1px solid var(--border);
-            }
-
-            .nav-links.active {
-                display: flex;
-            }
-
-            .page-header h1 {
-                font-size: 2rem;
-            }
-
-            .post-item h2 {
-                font-size: 1.5rem;
-            }
-
-            .post-footer {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 1rem;
-            }
-        }
-    </style>
+           .post-footer {
+               flex-direction: column;
+               align-items: flex-start;
+               gap: 1rem;
+           }
+       }
+   </style>
+    
 </head>
 <body>
     <!-- Navigation -->
@@ -436,39 +312,34 @@
         <p>&copy; 2025 Vinit K Shah. All rights reserved.</p>
     </footer>
 
-    <script>
-        function toggleMenu() {
-            const navLinks = document.getElementById('navLinks');
-            navLinks.classList.toggle('active');
-        }
-
-        // Filter functionality
-        const filterBtns = document.querySelectorAll('.filter-btn');
-        const posts = document.querySelectorAll('.post-item');
-
-        filterBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                // Remove active class from all buttons
-                filterBtns.forEach(b => b.classList.remove('active'));
-                // Add active class to clicked button
-                btn.classList.add('active');
-
-                const category = btn.dataset.category;
-
-                posts.forEach(post => {
-                    if (category === 'all' || post.dataset.category === category) {
-                        post.style.display = 'block';
-                    } else {
-                        post.style.display = 'none';
-                    }
-                });
-            });
-        });
-    </script>
+   
     <script src="main.js"></script>
+     <script>
+       // Filter functionality - blog-specific
+       const filterBtns = document.querySelectorAll('.filter-btn');
+       const posts = document.querySelectorAll('.post-item');
+
+       filterBtns.forEach(btn => {
+           btn.addEventListener('click', () => {
+               filterBtns.forEach(b => b.classList.remove('active'));
+               btn.classList.add('active');
+
+               const category = btn.dataset.category;
+
+               posts.forEach(post => {
+                   if (category === 'all' || post.dataset.category === category) {
+                       post.style.display = 'block';
+                   } else {
+                       post.style.display = 'none';
+                   }
+               });
+           });
+       });
+   </script>
 </body>
 
 </html>
+
 
 
 
