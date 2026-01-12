@@ -40,76 +40,6 @@
             flex-wrap: wrap;
         }
 
-        /* Recent Posts Section */
-        .section {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 4rem 2rem;
-        }
-
-        .section-header {
-            margin-bottom: 2rem;
-        }
-
-        .section-header h2 {
-            font-size: 2rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .section-header p {
-            color: var(--text-secondary);
-        }
-
-        .posts-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .post-card {
-            background: var(--bg-secondary);
-            border-radius: 0.75rem;
-            padding: 1.5rem;
-            transition: transform 0.3s, box-shadow 0.3s;
-            border: 1px solid var(--border);
-        }
-
-        .post-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 10px 30px rgba(146, 64, 14, 0.15);
-        }
-
-        .post-date {
-            color: var(--text-secondary);
-            font-size: 0.875rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .post-card h3 {
-            font-size: 1.25rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .post-card h3 a {
-            color: var(--text-primary);
-            text-decoration: none;
-        }
-
-        .post-card h3 a:hover {
-            color: var(--primary);
-        }
-
-        .post-excerpt {
-            color: var(--text-secondary);
-            margin-bottom: 1rem;
-        }
-
-        .read-more {
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: 600;
-        }
-
         @media (max-width: 768px) {
             .hero-content h1 {
                 font-size: 2rem;
@@ -117,10 +47,6 @@
 
             .hero-content p {
                 font-size: 1rem;
-            }
-
-            .posts-grid {
-                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -143,7 +69,7 @@
             </div>
             <ul class="nav-links" id="navLinks" role="navigation">
                 <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="blog.html">Blog</a></li>
+                <li><a href="https://vkshah2.blogspot.com" target="_blank" rel="noopener noreferrer">Blog</a></li>
                 <li><a href="links.html">Links</a></li>
                 <li><a href="about.html">About</a></li>
             </ul>
@@ -157,48 +83,12 @@
                 <h1>Hi, I'm Vinit</h1>
                 <p>Welcome to my corner of the internet. I write about technology, share interesting finds, and curate useful resources.</p>
                 <div class="cta-buttons">
-                    <a href="blog.html" class="btn btn-primary">Read My Blog</a>
+                    <a href="https://vkshah2.blogspot.com" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Read My Blog</a>
                     <a href="about.html" class="btn btn-secondary">About Me</a>
                 </div>
             </div>
         </section>
-
-        <!-- Recent Posts -->
-        <section class="section">
-            <div class="section-header">
-                <h2>Recent Posts</h2>
-                <p>Thoughts, tutorials, and discoveries</p>
-            </div>
-            <div class="posts-grid">
-                <article class="post-card">
-                    <span class="coming-soon-badge">Coming Soon</span>
-                    <div class="post-date">November 20, 2025</div>
-                    <h3><a href="#" aria-label="Getting Started with Web Development - Coming Soon">Getting Started with Web Development</a></h3>
-                    <p class="post-excerpt">A comprehensive guide for beginners looking to start their journey in web development...</p>
-                    <a href="#" class="read-more">Read more →</a>
-                </article>
-                <article class="post-card">
-                    <span class="coming-soon-badge">Coming Soon</span>
-                    <div class="post-date">November 15, 2025</div>
-                    <h3><a href="#" aria-label="My Favorite Productivity Tools - Coming Soon">My Favorite Productivity Tools</a></h3>
-                    <p class="post-excerpt">A curated list of tools and apps that help me stay productive and organized...</p>
-                    <a href="#" class="read-more">Read more →</a>
-                </article>
-                <article class="post-card">
-                    <span class="coming-soon-badge">Coming Soon</span>
-                    <div class="post-date">November 10, 2025</div>
-                    <h3><a href="#" aria-label="Understanding CSS Grid - Coming Soon">Understanding CSS Grid</a></h3>
-                    <p class="post-excerpt">Learn how to create responsive layouts with CSS Grid in this practical tutorial...</p>
-                    <a href="#" class="read-more">Read more →</a>
-                </article>
-            </div>
-        </section>
     </main>
-
-    <!-- <!-- Loading Indicator -->
-    <div class="loading" id="loading">
-        <p>Loading content...</p>
-    </div> -->
 
     <!-- Footer -->
     <footer>
@@ -219,8 +109,3 @@
 </body>
 
 </html>
-
-
-
-
-
