@@ -1,8 +1,9 @@
 # 🌐 Vinit's Personal Website
 
-Welcome to the repository for my personal website! This is where I share my thoughts on technology, curate interesting resources, and document my learning journey.
+Welcome to the repository for my personal website! This is my digital presence on the web where I share curated resources and connect with fellow developers and tech enthusiasts.
 
 [![Live Site](https://img.shields.io/badge/Live-vkshah2.github.io-brown?style=for-the-badge)](https://vkshah2.github.io)
+[![Blog](https://img.shields.io/badge/Blog-vkshah2.blogspot.com-orange?style=for-the-badge)](https://vkshah2.blogspot.com)
 [![GitHub Pages](https://img.shields.io/badge/Hosted_on-GitHub_Pages-blue?style=for-the-badge&logo=github)](https://pages.github.com/)
 
 ## 📋 Table of Contents
@@ -21,10 +22,13 @@ Welcome to the repository for my personal website! This is where I share my thou
 ## 🎯 About
 
 This is my personal website where I:
-- Share blog articles about web development and technology
-- Curate useful resources and tools
+
+- Share curated resources and tools via my [Links](https://vkshah2.github.io/links.html) page
+- Write blog articles about web development and technology on [my blog](https://vkshah2.blogspot.com)
 - Document my learning journey
 - Connect with fellow developers and tech enthusiasts
+
+**Note:** My blog is hosted separately on [Blogspot](https://vkshah2.blogspot.com) for better content management and features.
 
 ## ✨ Features
 
@@ -36,6 +40,7 @@ This is my personal website where I:
 - **Dark/Light Theme**: Warm brownish color scheme that's easy on the eyes
 
 ### User Experience Features
+
 - 🎯 Sticky navigation
 - 🔝 Back-to-top button
 - 📱 Mobile-friendly menu
@@ -46,16 +51,19 @@ This is my personal website where I:
 ## 📄 Pages
 
 ### 🏠 Home (`index.html`)
-The landing page featuring an introduction and preview of recent blog posts.
 
-### 📝 Blog (`blog.html`)
-Collection of articles with category filtering:
+The landing page featuring an introduction and quick links to my blog and other sections.
+
+### 📝 Blog (External)
+
+My blog is hosted on [Blogspot](https://vkshah2.blogspot.com) where I write about:
 - Web Development
-- Design
-- Productivity
-- Tutorials
+- Technology
+- Programming Tutorials
+- Learning Resources
 
 ### 🔗 Links (`links.html`)
+
 Curated resources organized by category:
 - Development Tools
 - Design Resources
@@ -63,9 +71,11 @@ Curated resources organized by category:
 - Productivity Tools
 
 ### 👤 About (`about.html`)
+
 Information about me, my skills, and how to get in touch.
 
 ### 🚫 404 (`404.html`)
+
 Custom error page for better user experience.
 
 ## 🛠️ Tech Stack
@@ -76,12 +86,14 @@ This website is built with pure web technologies:
 - **CSS3**: Modern styling with CSS Grid and Flexbox
 - **JavaScript**: Vanilla JS for interactivity
 - **GitHub Pages**: Free hosting
+- **Blogspot**: Blog hosting platform
 
 No frameworks, no build tools - just clean, efficient code!
 
 ## 🚀 Setup & Development
 
 ### Prerequisites
+
 - A web browser
 - A text editor (VS Code recommended)
 - Git (optional, for version control)
@@ -89,21 +101,21 @@ No frameworks, no build tools - just clean, efficient code!
 ### Local Development
 
 1. **Clone the repository**
-```bash
+   ```bash
    git clone https://github.com/vkshah2/vkshah2.github.io.git
    cd vkshah2.github.io
-```
+   ```
 
 2. **Open in browser**
    - Simply open `index.html` in your browser
    - Or use a local server (recommended):
-```bash
+   ```bash
    # Using Python 3
    python -m http.server 8000
    
    # Using Node.js
    npx http-server
-```
+   ```
 
 3. **Make changes**
    - Edit HTML, CSS, or JavaScript files
@@ -114,25 +126,26 @@ No frameworks, no build tools - just clean, efficient code!
 To reduce code duplication, you can extract common styles and scripts:
 
 1. Create `styles.css` and link it in all HTML files:
-```html
+   ```html
    <link rel="stylesheet" href="styles.css">
-```
+   ```
 
 2. Create `main.js` and link it before closing `</body>`:
-```html
+   ```html
    <script src="main.js"></script>
-```
+   ```
 
 ## 📁 File Structure
+
 ```
 vkshah2.github.io/
 ├── index.html          # Homepage
-├── blog.html           # Blog page
 ├── links.html          # Links/Resources page
 ├── about.html          # About page
 ├── 404.html            # Error page
-├── styles.css          # Shared styles (optional)
-├── main.js             # Shared JavaScript (optional)
+├── styles.css          # Shared styles
+├── main.js             # Shared JavaScript
+├── robots.txt          # Search engine instructions
 └── README.md           # This file
 ```
 
@@ -141,6 +154,7 @@ vkshah2.github.io/
 ### Colors
 
 Edit the CSS variables in any HTML file or in `styles.css`:
+
 ```css
 :root {
     --primary: #92400e;       /* Main brown color */
@@ -161,11 +175,7 @@ Edit the CSS variables in any HTML file or in `styles.css`:
    - About page content
    - Social media links
 
-2. **Add blog posts**:
-   - Edit `blog.html`
-   - Add new article cards with proper data-category attributes
-
-3. **Customize links**:
+2. **Customize links**:
    - Edit `links.html`
    - Update resource cards with your favorite tools
 
@@ -189,11 +199,11 @@ This site is automatically deployed via GitHub Pages.
    - Click Save
 
 2. **Push changes**:
-```bash
+   ```bash
    git add .
    git commit -m "Update website"
    git push origin main
-```
+   ```
 
 3. **Wait a few minutes** for changes to go live at `https://vkshah2.github.io`
 
@@ -222,8 +232,9 @@ Feel free to use this as a template for your own personal website!
 - **Email**: [vkshah2@gmail.com](mailto:vkshah2@gmail.com)
 - **GitHub**: [@vkshah2](https://github.com/vkshah2)
 - **Twitter/X**: [@vkshah2](https://x.com/vkshah2)
+- **Blog**: [vkshah2.blogspot.com](https://vkshah2.blogspot.com)
 
-- ## 📝 Note
+## 📝 Note
 
 This is a learning project to practice web development fundamentals:
 - HTML5 semantic structure
