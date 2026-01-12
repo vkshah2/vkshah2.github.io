@@ -1,6 +1,6 @@
 # 🌐 Vinit's Personal Website
 
-Welcome to the repository for my personal website! This is my digital presence on the web where I share curated resources and connect with fellow developers and tech enthusiasts.
+Welcome to the repository for my personal website! This is my digital space where I share my thoughts, curate interesting resources, and connect with others.
 
 [![Live Site](https://img.shields.io/badge/Live-vkshah2.github.io-brown?style=for-the-badge)](https://vkshah2.github.io)
 [![Blog](https://img.shields.io/badge/Blog-vkshah2.blogspot.com-orange?style=for-the-badge)](https://vkshah2.blogspot.com)
@@ -23,10 +23,10 @@ Welcome to the repository for my personal website! This is my digital presence o
 
 This is my personal website where I:
 
-- Share curated resources and tools via my [Links](https://vkshah2.github.io/links.html) page
-- Write blog articles about web development and technology on [my blog](https://vkshah2.blogspot.com)
-- Document my learning journey
-- Connect with fellow developers and tech enthusiasts
+- Share curated resources and interesting finds
+- Write about various topics on [my blog](https://vkshah2.blogspot.com)
+- Document my interests and discoveries
+- Connect with others who share similar interests
 
 **Note:** My blog is hosted separately on [Blogspot](https://vkshah2.blogspot.com) for better content management and features.
 
@@ -34,10 +34,10 @@ This is my personal website where I:
 
 - **Responsive Design**: Works seamlessly on desktop, tablet, and mobile devices
 - **Accessible**: Built with accessibility in mind (WCAG compliant)
-- **Fast & Lightweight**: Static site with no dependencies
-- **SEO Optimized**: Meta tags and semantic HTML for better search engine visibility
+- **Fast & Lightweight**: Static site with minimal dependencies
+- **SEO Optimized**: Meta tags and semantic HTML for better visibility
 - **Modern UI**: Clean, minimalist design with smooth animations
-- **Dark/Light Theme**: Warm brownish color scheme that's easy on the eyes
+- **Warm Color Scheme**: Pleasant brownish tones that are easy on the eyes
 
 ### User Experience Features
 
@@ -52,27 +52,19 @@ This is my personal website where I:
 
 ### 🏠 Home (`index.html`)
 
-The landing page featuring an introduction and quick links to my blog and other sections.
+The landing page featuring an introduction and quick links to other sections.
 
 ### 📝 Blog (External)
 
-My blog is hosted on [Blogspot](https://vkshah2.blogspot.com) where I write about:
-- Web Development
-- Technology
-- Programming Tutorials
-- Learning Resources
+My blog is hosted on [Blogspot](https://vkshah2.blogspot.com) where I write about various topics that interest me.
 
-### 🔗 Links (`links.html`)
+### 🔗 Resources (`links.html`)
 
-Curated resources organized by category:
-- Development Tools
-- Design Resources
-- Learning Resources
-- Productivity Tools
+A curated collection of useful resources, tools, and interesting links organized by category.
 
 ### 👤 About (`about.html`)
 
-Information about me, my skills, and how to get in touch.
+Information about me, my interests, and how to get in touch.
 
 ### 🚫 404 (`404.html`)
 
@@ -80,7 +72,7 @@ Custom error page for better user experience.
 
 ## 🛠️ Tech Stack
 
-This website is built with pure web technologies:
+This website is built with simple web technologies:
 
 - **HTML5**: Semantic markup
 - **CSS3**: Modern styling with CSS Grid and Flexbox
@@ -88,7 +80,7 @@ This website is built with pure web technologies:
 - **GitHub Pages**: Free hosting
 - **Blogspot**: Blog hosting platform
 
-No frameworks, no build tools - just clean, efficient code!
+Clean, straightforward code with no complex frameworks or build tools.
 
 ## 🚀 Setup & Development
 
@@ -121,26 +113,12 @@ No frameworks, no build tools - just clean, efficient code!
    - Edit HTML, CSS, or JavaScript files
    - Refresh browser to see changes
 
-### Optional: Use Shared Files
-
-To reduce code duplication, you can extract common styles and scripts:
-
-1. Create `styles.css` and link it in all HTML files:
-   ```html
-   <link rel="stylesheet" href="styles.css">
-   ```
-
-2. Create `main.js` and link it before closing `</body>`:
-   ```html
-   <script src="main.js"></script>
-   ```
-
 ## 📁 File Structure
 
 ```
 vkshah2.github.io/
 ├── index.html          # Homepage
-├── links.html          # Links/Resources page
+├── links.html          # Resources page
 ├── about.html          # About page
 ├── 404.html            # Error page
 ├── styles.css          # Shared styles
@@ -153,7 +131,7 @@ vkshah2.github.io/
 
 ### Colors
 
-Edit the CSS variables in any HTML file or in `styles.css`:
+Edit the CSS variables in `styles.css`:
 
 ```css
 :root {
@@ -175,9 +153,9 @@ Edit the CSS variables in any HTML file or in `styles.css`:
    - About page content
    - Social media links
 
-2. **Customize links**:
+2. **Customize resources**:
    - Edit `links.html`
-   - Update resource cards with your favorite tools
+   - Add your favorite resources and tools
 
 ### Adding New Pages
 
@@ -235,13 +213,6 @@ Feel free to use this as a template for your own personal website!
 - **Blog**: [vkshah2.blogspot.com](https://vkshah2.blogspot.com)
 
 ## 📝 Note
-
-This is a learning project to practice web development fundamentals:
-- HTML5 semantic structure
-- CSS3 styling and layouts
-- Vanilla JavaScript
-- Responsive design
-- GitHub Pages deployment
 
 The site is not intended for search engine indexing (`robots.txt` + meta tags).
 
