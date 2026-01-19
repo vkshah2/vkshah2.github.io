@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="My personal collection of tools, apps, and resources I use daily for productivity, learning, and development.">
+    <meta name="description" content="Curated collection of development tools, design resources, and learning materials handpicked by Vinit K Shah.">
     <meta name="robots" content="noindex, nofollow">
-    <title>My Resources - Vinit</title>
+    <title>Links - Vinit</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💻</text></svg>">
     <link rel="stylesheet" href="styles.css">
     <style>
+        /* Page Header */
         .page-header {
             max-width: 1200px;
             margin: 0 auto;
@@ -26,6 +27,7 @@
             color: var(--text-secondary);
         }
 
+        /* Links Container */
         .links-container {
             max-width: 1200px;
             margin: 0 auto;
@@ -55,7 +57,7 @@
 
         .links-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 1.5rem;
         }
 
@@ -63,7 +65,7 @@
             background: white;
             border: 1px solid var(--border);
             border-radius: 0.75rem;
-            padding: 1.25rem;
+            padding: 1.5rem;
             transition: all 0.3s;
             text-decoration: none;
             display: block;
@@ -77,39 +79,67 @@
 
         .link-header {
             display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            margin-bottom: 0.75rem;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1rem;
         }
 
         .link-icon {
-            width: 40px;
-            height: 40px;
+            width: 48px;
+            height: 48px;
             background: var(--bg-secondary);
             border-radius: 0.5rem;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.25rem;
+            font-size: 1.5rem;
             flex-shrink: 0;
         }
 
+        .link-info {
+            flex: 1;
+        }
+
         .link-title {
-            font-size: 1rem;
+            font-size: 1.125rem;
             font-weight: 600;
             color: var(--text-primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .link-url {
+            font-size: 0.875rem;
+            color: var(--accent);
+            word-break: break-all;
         }
 
         .link-description {
             color: var(--text-secondary);
-            font-size: 0.875rem;
+            font-size: 0.9375rem;
             line-height: 1.5;
+        }
+
+        .link-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        .tag {
+            background: var(--bg-secondary);
+            color: var(--primary-dark);
+            padding: 0.25rem 0.625rem;
+            border-radius: 1rem;
+            font-size: 0.75rem;
+            font-weight: 600;
         }
 
         footer {
             margin-top: 4rem;
         }
 
+        /* Responsive */
         @media (max-width: 768px) {
             .page-header h1 {
                 font-size: 2rem;
@@ -122,6 +152,7 @@
     </style>
 </head>
 <body>
+    <!-- Navigation -->
     <nav>
         <div class="nav-container">
             <a href="index.html" class="logo">Vinit</a>
@@ -133,549 +164,259 @@
             <ul class="nav-links" id="navLinks">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="https://vkshah2.blogspot.com" target="_blank" rel="noopener noreferrer">Blog</a></li>
-                <li><a href="links.html" class="active">Resources</a></li>
+                <li><a href="links.html" class="active">Links</a></li>
                 <li><a href="about.html">About</a></li>
             </ul>
         </div>
     </nav>
 
+    <!-- Page Header -->
     <div class="page-header">
-        <h1>My Resources</h1>
-        <p>Tools, apps, and platforms I use daily for productivity, learning, and development</p>
+        <h1>Links & Resources</h1>
+        <p>A curated collection of websites, tools, and resources I find useful and interesting</p>
     </div>
 
+    <!-- Links Container -->
     <div class="links-container">
-        <!-- Search & Information -->
-        <section class="links-section">
-            <h2 class="section-title">Search & Information</h2>
-            <div class="links-grid">
-                <a href="https://www.google.com" class="link-card" target="_blank" rel="noopener">
-                    <div class="link-header">
-                        <div class="link-icon">🔍</div>
-                        <div class="link-title">Google Search</div>
-                    </div>
-                    <p class="link-description">Primary search engine for research and information</p>
-                </a>
-
-                <a href="https://mail.google.com" class="link-card" target="_blank" rel="noopener">
-                    <div class="link-header">
-                        <div class="link-icon">✉️</div>
-                        <div class="link-title">Gmail</div>
-                    </div>
-                    <p class="link-description">Email communication and management</p>
-                </a>
-
-                <a href="https://maps.google.com" class="link-card" target="_blank" rel="noopener">
-                    <div class="link-header">
-                        <div class="link-icon">🗺️</div>
-                        <div class="link-title">Google Maps</div>
-                    </div>
-                    <p class="link-description">Navigation and location services</p>
-                </a>
-
-                <a href="https://translate.google.com" class="link-card" target="_blank" rel="noopener">
-                    <div class="link-header">
-                        <div class="link-icon">🌐</div>
-                        <div class="link-title">Google Translate</div>
-                    </div>
-                    <p class="link-description">Language translation tool</p>
-                </a>
-
-                <a href="https://www.wikipedia.org" class="link-card" target="_blank" rel="noopener">
-                    <div class="link-header">
-                        <div class="link-icon">📚</div>
-                        <div class="link-title">Wikipedia</div>
-                    </div>
-                    <p class="link-description">Free encyclopedia for quick research</p>
-                </a>
-            </div>
-        </section>
-
-        <!-- Media & Entertainment -->
-        <section class="links-section">
-            <h2 class="section-title">Media & Entertainment</h2>
-            <div class="links-grid">
-                <a href="https://www.youtube.com" class="link-card" target="_blank" rel="noopener">
-                    <div class="link-header">
-                        <div class="link-icon">📺</div>
-                        <div class="link-title">YouTube</div>
-                    </div>
-                    <p class="link-description">Video platform for learning and entertainment</p>
-                </a>
-
-                <a href="https://music.youtube.com" class="link-card" target="_blank" rel="noopener">
-                    <div class="link-header">
-                        <div class="link-icon">🎵</div>
-                        <div class="link-title">YouTube Music</div>
-                    </div>
-                    <p class="link-description">Music streaming service</p>
-                </a>
-
-                <a href="https://open.spotify.com" class="link-card" target="_blank" rel="noopener">
-                    <div class="link-header">
-                        <div class="link-icon">🎧</div>
-                        <div class="link-title">Spotify</div>
-                    </div>
-                    <p class="link-description">Music and podcast streaming</p>
-                </a>
-            </div>
-        </section>
-
-        <!-- Finance & Investing -->
-        <section class="links-section">
-            <h2 class="section-title">Finance & Investing</h2>
-            <div class="links-grid">
-                <a href="https://www.google.com/finance" class="link-card" target="_blank" rel="noopener">
-                    <div class="link-header">
-                        <div class="link-icon">💹</div>
-                        <div class="link-title">Google Finance</div>
-                    </div>
-                    <p class="link-description">Stock market tracking and portfolio management</p>
-                </a>
-
-                <a href="https://www.screener.in" class="link-card" target="_blank" rel="noopener">
-                    <div class="link-header">
-                        <div class="link-icon">📊</div>
-                        <div class="link-title">Screener</div>
-                    </div>
-                    <p class="link-description">Stock screening and fundamental analysis</p>
-                </a>
-
-                <a href="https://www.chittorgarh.com" class="link-card" target="_blank" rel="noopener">
-                    <div class="link-header">
-                        <div class="link-icon">📈</div>
-                        <div class="link-title">Chittorgarh</div>
-                    </div>
-                    <p class="link-description">IPO tracking and market analysis</p>
-                </a>
-
-                <a href="https://www.moneycontrol.com" class="link-card" target="_blank" rel="noopener">
-                    <div class="link-header">
-                        <div class="link-icon">💰</div>
-                        <div class="link-title">Moneycontrol</div>
-                    </div>
-                    <p class="link-description">Financial news and market data</p>
-                </a>
-
-                <a href="https://www.nseindia.com" class="link-card" target="_blank" rel="noopener">
-                    <div class="link-header">
-                        <div class="link-icon">🏦</div>
-                        <div class="link-title">NSE India</div>
-                    </div>
-                    <p class="link-description">National Stock Exchange official site</p>
-                </a>
-            </div>
-        </section>
-
-        <!-- Communication -->
-        <section class="links-section">
-            <h2 class="section-title">Communication</h2>
-            <div class="links-grid">
-                <a href="https://web.whatsapp.com" class="link-card" target="_blank" rel="noopener">
-                    <div class="link-header">
-                        <div class="link-icon">💬</div>
-                        <div class="link-title">WhatsApp Web</div>
-                    </div>
-                    <p class="link-description">Primary instant messaging platform</p>
-                </a>
-
-                <a href="https://web.telegram.org" class="link-card" target="_blank" rel="noopener">
-                    <div class="link-header">
-                        <div class="link-icon">✈️</div>
-                        <div class="link-title">Telegram</div>
-                    </div>
-                    <p class="link-description">Secure messaging and channels</p>
-                </a>
-
-                <a href="https://discord.com" class="link-card" target="_blank" rel="noopener">
-                    <div class="link-header">
-                        <div class="link-icon">💭</div>
-                        <div class="link-title">Discord</div>
-                    </div>
-                    <p class="link-description">Community chat and voice communication</p>
-                </a>
-
-                <a href="https://www.linkedin.com" class="link-card" target="_blank" rel="noopener">
-                    <div class="link-header">
-                        <div class="link-icon">💼</div>
-                        <div class="link-title">LinkedIn</div>
-                    </div>
-                    <p class="link-description">Professional networking platform</p>
-                </a>
-            </div>
-        </section>
-
-        <!-- Content Creation -->
-        <section class="links-section">
-            <h2 class="section-title">Content & Writing</h2>
-            <div class="links-grid">
-                <a href="https://www.blogger.com" class="link-card" target="_blank" rel="noopener">
-                    <div class="link-header">
-                        <div class="link-icon">📝</div>
-                        <div class="link-title">Blogger</div>
-                    </div>
-                    <p class="link-description">Personal and public blog platform</p>
-                </a>
-
-                <a href="https://medium.com" class="link-card" target="_blank" rel="noopener">
-                    <div class="link-header">
-                        <div class="link-icon">📰</div>
-                        <div class="link-title">Medium</div>
-                    </div>
-                    <p class="link-description">Publishing platform for articles</p>
-                </a>
-
-                <a href="https://docs.google.com" class="link-card" target="_blank" rel="noopener">
-                    <div class="link-header">
-                        <div class="link-icon">📄</div>
-                        <div class="link-title">Google Docs</div>
-                    </div>
-                    <p class="link-description">Online document creation and collaboration</p>
-                </a>
-
-                <a href="https://www.notion.so" class="link-card" target="_blank" rel="noopener">
-                    <div class="link-header">
-                        <div class="link-icon">📋</div>
-                        <div class="link-title">Notion</div>
-                    </div>
-                    <p class="link-description">All-in-one workspace for notes and docs</p>
-                </a>
-            </div>
-        </section>
-
-        <!-- Learning & Memory -->
-        <section class="links-section">
-            <h2 class="section-title">Learning & Memory</h2>
-            <div class="links-grid">
-                <a href="https://apps.ankiweb.net" class="link-card" target="_blank" rel="noopener">
-                    <div class="link-header">
-                        <div class="link-icon">🧠</div>
-                        <div class="link-title">AnkiWeb</div>
-                    </div>
-                    <p class="link-description">Spaced repetition flashcard system (AnkiDroid sync)</p>
-                </a>
-
-                <a href="https://www.khanacademy.org" class="link-card" target="_blank" rel="noopener">
-                    <div class="link-header">
-                        <div class="link-icon">🎓</div>
-                        <div class="link-title">Khan Academy</div>
-                    </div>
-                    <p class="link-description">Free educational courses and lessons</p>
-                </a>
-
-                <a href="https://www.coursera.org" class="link-card" target="_blank" rel="noopener">
-                    <div class="link-header">
-                        <div class="link-icon">🎯</div>
-                        <div class="link-title">Coursera</div>
-                    </div>
-                    <p class="link-description">Online courses and certifications</p>
-                </a>
-
-                <a href="https://www.udemy.com" class="link-card" target="_blank" rel="noopener">
-                    <div class="link-header">
-                        <div class="link-icon">📚</div>
-                        <div class="link-title">Udemy</div>
-                    </div>
-                    <p class="link-description">Online learning marketplace</p>
-                </a>
-            </div>
-        </section>
-
-        <!-- Productivity & Office -->
-        <section class="links-section">
-            <h2 class="section-title">Productivity & Office</h2>
-            <div class="links-grid">
-                <a href="https://www.office.com" class="link-card" target="_blank" rel="noopener">
-                    <div class="link-header">
-                        <div class="link-icon">📊</div>
-                        <div class="link-title">Microsoft Office</div>
-                    </div>
-                    <p class="link-description">Word, Excel, PowerPoint suite</p>
-                </a>
-
-                <a href="https://obsidian.md" class="link-card" target="_blank" rel="noopener">
-                    <div class="link-header">
-                        <div class="link-icon">🗒️</div>
-                        <div class="link-title">Obsidian</div>
-                    </div>
-                    <p class="link-description">Knowledge base and note-taking with markdown</p>
-                </a>
-
-                <a href="https://trello.com" class="link-card" target="_blank" rel="noopener">
-                    <div class="link-header">
-                        <div class="link-icon">📌</div>
-                        <div class="link-title">Trello (Kanban)</div>
-                    </div>
-                    <p class="link-description">Visual project management with Kanban boards</p>
-                </a>
-
-                <a href="https://www.any.do" class="link-card" target="_blank" rel="noopener">
-                    <div class="link-header">
-                        <div class="link-icon">✅</div>
-                        <div class="link-title">Any.do</div>
-                    </div>
-                    <p class="link-description">Task manager and to-do list</p>
-                </a>
-
-                <a href="https://todoist.com" class="link-card" target="_blank" rel="noopener">
-                    <div class="link-header">
-                        <div class="link-icon">✔️</div>
-                        <div class="link-title">Todoist</div>
-                    </div>
-                    <p class="link-description">Advanced task management</p>
-                </a>
-
-                <a href="https://pomofocus.io" class="link-card" target="_blank" rel="noopener">
-                    <div class="link-header">
-                        <div class="link-icon">⏰</div>
-                        <div class="link-title">Pomodoro Timer</div>
-                    </div>
-                    <p class="link-description">Focus technique for productivity</p>
-                </a>
-
-                <a href="https://www.notion.so/product/calendar" class="link-card" target="_blank" rel="noopener">
-                    <div class="link-header">
-                        <div class="link-icon">📅</div>
-                        <div class="link-title">Google Calendar</div>
-                    </div>
-                    <p class="link-description">Schedule and time management</p>
-                </a>
-            </div>
-        </section>
-
-        <!-- AI Tools -->
-        <section class="links-section">
-            <h2 class="section-title">AI & Generative Tools</h2>
-            <div class="links-grid">
-                <a href="https://claude.ai" class="link-card" target="_blank" rel="noopener">
-                    <div class="link-header">
-                        <div class="link-icon">🤖</div>
-                        <div class="link-title">Claude AI</div>
-                    </div>
-                    <p class="link-description">Advanced AI assistant for various tasks</p>
-                </a>
-
-                <a href="https://chat.openai.com" class="link-card" target="_blank" rel="noopener">
-                    <div class="link-header">
-                        <div class="link-icon">💭</div>
-                        <div class="link-title">ChatGPT</div>
-                    </div>
-                    <p class="link-description">Conversational AI by OpenAI</p>
-                </a>
-
-                <a href="https://gemini.google.com" class="link-card" target="_blank" rel="noopener">
-                    <div class="link-header">
-                        <div class="link-icon">✨</div>
-                        <div class="link-title">Google Gemini</div>
-                    </div>
-                    <p class="link-description">Google's AI assistant</p>
-                </a>
-
-                <a href="https://www.perplexity.ai" class="link-card" target="_blank" rel="noopener">
-                    <div class="link-header">
-                        <div class="link-icon">🔍</div>
-                        <div class="link-title">Perplexity AI</div>
-                    </div>
-                    <p class="link-description">AI-powered research and answers</p>
-                </a>
-
-                <a href="https://copilot.microsoft.com" class="link-card" target="_blank" rel="noopener">
-                    <div class="link-header">
-                        <div class="link-icon">🚀</div>
-                        <div class="link-title">Microsoft Copilot</div>
-                    </div>
-                    <p class="link-description">AI assistant integrated with Microsoft products</p>
-                </a>
-            </div>
-        </section>
-
-        <!-- Cloud Storage -->
-        <section class="links-section">
-            <h2 class="section-title">Cloud Storage</h2>
-            <div class="links-grid">
-                <a href="https://onedrive.live.com" class="link-card" target="_blank" rel="noopener">
-                    <div class="link-header">
-                        <div class="link-icon">☁️</div>
-                        <div class="link-title">OneDrive</div>
-                    </div>
-                    <p class="link-description">Microsoft cloud storage solution</p>
-                </a>
-
-                <a href="https://drive.google.com" class="link-card" target="_blank" rel="noopener">
-                    <div class="link-header">
-                        <div class="link-icon">📁</div>
-                        <div class="link-title">Google Drive</div>
-                    </div>
-                    <p class="link-description">Google's cloud storage and collaboration</p>
-                </a>
-
-                <a href="https://mega.nz" class="link-card" target="_blank" rel="noopener">
-                    <div class="link-header">
-                        <div class="link-icon">🔐</div>
-                        <div class="link-title">MEGA</div>
-                    </div>
-                    <p class="link-description">Secure cloud storage with encryption</p>
-                </a>
-
-                <a href="https://www.dropbox.com" class="link-card" target="_blank" rel="noopener">
-                    <div class="link-header">
-                        <div class="link-icon">📦</div>
-                        <div class="link-title">Dropbox</div>
-                    </div>
-                    <p class="link-description">File hosting and synchronization</p>
-                </a>
-            </div>
-        </section>
-
-        <!-- Browsers -->
-        <section class="links-section">
-            <h2 class="section-title">Web Browsers</h2>
-            <div class="links-grid">
-                <a href="https://www.google.com/chrome/" class="link-card" target="_blank" rel="noopener">
-                    <div class="link-header">
-                        <div class="link-icon">🌐</div>
-                        <div class="link-title">Google Chrome</div>
-                    </div>
-                    <p class="link-description">Primary web browser with extensive extensions</p>
-                </a>
-
-                <a href="https://www.microsoft.com/edge" class="link-card" target="_blank" rel="noopener">
-                    <div class="link-header">
-                        <div class="link-icon">🌊</div>
-                        <div class="link-title">Microsoft Edge</div>
-                    </div>
-                    <p class="link-description">Chromium-based browser with Copilot integration</p>
-                </a>
-
-                <a href="https://www.mozilla.org/firefox/" class="link-card" target="_blank" rel="noopener">
-                    <div class="link-header">
-                        <div class="link-icon">🦊</div>
-                        <div class="link-title">Firefox</div>
-                    </div>
-                    <p class="link-description">Privacy-focused open-source browser</p>
-                </a>
-
-                <a href="https://brave.com" class="link-card" target="_blank" rel="noopener">
-                    <div class="link-header">
-                        <div class="link-icon">🦁</div>
-                        <div class="link-title">Brave</div>
-                    </div>
-                    <p class="link-description">Privacy-first browser with ad blocking</p>
-                </a>
-            </div>
-        </section>
-
         <!-- Development Tools -->
         <section class="links-section">
-            <h2 class="section-title">Development & Code</h2>
+            <h2 class="section-title">Development Tools</h2>
             <div class="links-grid">
                 <a href="https://github.com" class="link-card" target="_blank" rel="noopener">
                     <div class="link-header">
                         <div class="link-icon">🐙</div>
-                        <div class="link-title">GitHub</div>
+                        <div class="link-info">
+                            <div class="link-title">GitHub</div>
+                            <div class="link-url">github.com</div>
+                        </div>
                     </div>
-                    <p class="link-description">Code hosting and version control</p>
+                    <p class="link-description">
+                        The world's leading platform for version control and collaboration. Essential for any developer.
+                    </p>
+                    <div class="link-tags">
+                        <span class="tag">Git</span>
+                        <span class="tag">Collaboration</span>
+                    </div>
                 </a>
 
                 <a href="https://code.visualstudio.com" class="link-card" target="_blank" rel="noopener">
                     <div class="link-header">
                         <div class="link-icon">💻</div>
-                        <div class="link-title">VS Code</div>
+                        <div class="link-info">
+                            <div class="link-title">VS Code</div>
+                            <div class="link-url">code.visualstudio.com</div>
+                        </div>
                     </div>
-                    <p class="link-description">Powerful code editor</p>
+                    <p class="link-description">
+                        My favorite code editor. Lightweight, powerful, and with an amazing extension ecosystem.
+                    </p>
+                    <div class="link-tags">
+                        <span class="tag">Editor</span>
+                        <span class="tag">IDE</span>
+                    </div>
                 </a>
 
                 <a href="https://stackoverflow.com" class="link-card" target="_blank" rel="noopener">
                     <div class="link-header">
                         <div class="link-icon">📚</div>
-                        <div class="link-title">Stack Overflow</div>
+                        <div class="link-info">
+                            <div class="link-title">Stack Overflow</div>
+                            <div class="link-url">stackoverflow.com</div>
+                        </div>
                     </div>
-                    <p class="link-description">Developer Q&A community</p>
+                    <p class="link-description">
+                        The go-to Q&A platform for developers. If you have a coding question, someone has probably answered it here.
+                    </p>
+                    <div class="link-tags">
+                        <span class="tag">Q&A</span>
+                        <span class="tag">Community</span>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- Design Resources -->
+        <section class="links-section">
+            <h2 class="section-title">Design Resources</h2>
+            <div class="links-grid">
+                <a href="https://dribbble.com" class="link-card" target="_blank" rel="noopener">
+                    <div class="link-header">
+                        <div class="link-icon">🎨</div>
+                        <div class="link-info">
+                            <div class="link-title">Dribbble</div>
+                            <div class="link-url">dribbble.com</div>
+                        </div>
+                    </div>
+                    <p class="link-description">
+                        A community of designers sharing their work. Great for inspiration and discovering design trends.
+                    </p>
+                    <div class="link-tags">
+                        <span class="tag">Inspiration</span>
+                        <span class="tag">Design</span>
+                    </div>
                 </a>
 
+                <a href="https://fonts.google.com" class="link-card" target="_blank" rel="noopener">
+                    <div class="link-header">
+                        <div class="link-icon">🔤</div>
+                        <div class="link-info">
+                            <div class="link-title">Google Fonts</div>
+                            <div class="link-url">fonts.google.com</div>
+                        </div>
+                    </div>
+                    <p class="link-description">
+                        Free, open-source fonts optimized for the web. Easy to use and beautiful typography.
+                    </p>
+                    <div class="link-tags">
+                        <span class="tag">Typography</span>
+                        <span class="tag">Free</span>
+                    </div>
+                </a>
+
+                <a href="https://coolors.co" class="link-card" target="_blank" rel="noopener">
+                    <div class="link-header">
+                        <div class="link-icon">🎨</div>
+                        <div class="link-info">
+                            <div class="link-title">Coolors</div>
+                            <div class="link-url">coolors.co</div>
+                        </div>
+                    </div>
+                    <p class="link-description">
+                        Fast color palette generator. Perfect for quickly creating beautiful color schemes.
+                    </p>
+                    <div class="link-tags">
+                        <span class="tag">Colors</span>
+                        <span class="tag">Tool</span>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- Learning Resources -->
+        <section class="links-section">
+            <h2 class="section-title">Learning Resources</h2>
+            <div class="links-grid">
                 <a href="https://developer.mozilla.org" class="link-card" target="_blank" rel="noopener">
                     <div class="link-header">
                         <div class="link-icon">📖</div>
-                        <div class="link-title">MDN Web Docs</div>
+                        <div class="link-info">
+                            <div class="link-title">MDN Web Docs</div>
+                            <div class="link-url">developer.mozilla.org</div>
+                        </div>
                     </div>
-                    <p class="link-description">Web development documentation</p>
+                    <p class="link-description">
+                        The most comprehensive and accurate web development documentation. A must-bookmark for any web developer.
+                    </p>
+                    <div class="link-tags">
+                        <span class="tag">Documentation</span>
+                        <span class="tag">Reference</span>
+                    </div>
+                </a>
+
+                <a href="https://www.freecodecamp.org" class="link-card" target="_blank" rel="noopener">
+                    <div class="link-header">
+                        <div class="link-icon">🎓</div>
+                        <div class="link-info">
+                            <div class="link-title">freeCodeCamp</div>
+                            <div class="link-url">freecodecamp.org</div>
+                        </div>
+                    </div>
+                    <p class="link-description">
+                        Learn to code for free with interactive lessons and certifications. Great for beginners and experienced developers.
+                    </p>
+                    <div class="link-tags">
+                        <span class="tag">Tutorial</span>
+                        <span class="tag">Free</span>
+                    </div>
+                </a>
+
+                <a href="https://css-tricks.com" class="link-card" target="_blank" rel="noopener">
+                    <div class="link-header">
+                        <div class="link-icon">✨</div>
+                        <div class="link-info">
+                            <div class="link-title">CSS-Tricks</div>
+                            <div class="link-url">css-tricks.com</div>
+                        </div>
+                    </div>
+                    <p class="link-description">
+                        Articles, guides, and resources about CSS and web design. Excellent tutorials and tips.
+                    </p>
+                    <div class="link-tags">
+                        <span class="tag">CSS</span>
+                        <span class="tag">Tutorial</span>
+                    </div>
                 </a>
             </div>
         </section>
 
-        <!-- Android & Mobile -->
+        <!-- Productivity -->
         <section class="links-section">
-            <h2 class="section-title">Android & Mobile Apps</h2>
+            <h2 class="section-title">Productivity</h2>
             <div class="links-grid">
-                <a href="https://play.google.com" class="link-card" target="_blank" rel="noopener">
-                    <div class="link-header">
-                        <div class="link-icon">📱</div>
-                        <div class="link-title">Google Play Store</div>
-                    </div>
-                    <p class="link-description">Android app marketplace</p>
-                </a>
-
-                <a href="https://f-droid.org" class="link-card" target="_blank" rel="noopener">
-                    <div class="link-header">
-                        <div class="link-icon">🤖</div>
-                        <div class="link-title">F-Droid</div>
-                    </div>
-                    <p class="link-description">Free and open-source Android apps</p>
-                </a>
-
-                <a href="https://www.apkmirror.com" class="link-card" target="_blank" rel="noopener">
-                    <div class="link-header">
-                        <div class="link-icon">📲</div>
-                        <div class="link-title">APKMirror</div>
-                    </div>
-                    <p class="link-description">Trusted APK downloads</p>
-                </a>
-            </div>
-        </section>
-
-        <!-- Open Source -->
-        <section class="links-section">
-            <h2 class="section-title">Open Source Software</h2>
-            <div class="links-grid">
-                <a href="https://www.libreoffice.org" class="link-card" target="_blank" rel="noopener">
+                <a href="https://notion.so" class="link-card" target="_blank" rel="noopener">
                     <div class="link-header">
                         <div class="link-icon">📝</div>
-                        <div class="link-title">LibreOffice</div>
+                        <div class="link-info">
+                            <div class="link-title">Notion</div>
+                            <div class="link-url">notion.so</div>
+                        </div>
                     </div>
-                    <p class="link-description">Free office suite alternative</p>
+                    <p class="link-description">
+                        All-in-one workspace for notes, tasks, wikis, and databases. My go-to tool for organization.
+                    </p>
+                    <div class="link-tags">
+                        <span class="tag">Notes</span>
+                        <span class="tag">Organization</span>
+                    </div>
                 </a>
 
-                <a href="https://www.videolan.org/vlc/" class="link-card" target="_blank" rel="noopener">
+                <a href="https://todoist.com" class="link-card" target="_blank" rel="noopener">
                     <div class="link-header">
-                        <div class="link-icon">🎬</div>
-                        <div class="link-title">VLC Media Player</div>
+                        <div class="link-icon">✅</div>
+                        <div class="link-info">
+                            <div class="link-title">Todoist</div>
+                            <div class="link-url">todoist.com</div>
+                        </div>
                     </div>
-                    <p class="link-description">Universal media player</p>
+                    <p class="link-description">
+                        Simple yet powerful task manager. Helps me stay on top of everything I need to do.
+                    </p>
+                    <div class="link-tags">
+                        <span class="tag">Tasks</span>
+                        <span class="tag">GTD</span>
+                    </div>
                 </a>
 
-                <a href="https://www.gimp.org" class="link-card" target="_blank" rel="noopener">
+                <a href="https://raindrop.io" class="link-card" target="_blank" rel="noopener">
                     <div class="link-header">
-                        <div class="link-icon">🎨</div>
-                        <div class="link-title">GIMP</div>
+                        <div class="link-icon">🔖</div>
+                        <div class="link-info">
+                            <div class="link-title">Raindrop.io</div>
+                            <div class="link-url">raindrop.io</div>
+                        </div>
                     </div>
-                    <p class="link-description">Image editing software</p>
-                </a>
-
-                <a href="https://www.audacityteam.org" class="link-card" target="_blank" rel="noopener">
-                    <div class="link-header">
-                        <div class="link-icon">🎙️</div>
-                        <div class="link-title">Audacity</div>
+                    <p class="link-description">
+                        Beautiful bookmark manager. Perfect for organizing all those interesting links you come across.
+                    </p>
+                    <div class="link-tags">
+                        <span class="tag">Bookmarks</span>
+                        <span class="tag">Organization</span>
                     </div>
-                    <p class="link-description">Audio recording and editing</p>
                 </a>
+            </div>
+        </section>
+    </div>
 
-                <a href="https://obsproject.com" class="link-card" target="_blank" rel="noopener">
-                    <div class="link-header">
-                        <div class="link-icon">📹</div>
-                        <div class="link-title">OBS Studio</div>
-                    </div>
-                    <p class="link-description">Screen recording and streaming</p>
-                </a>
+    <!-- Footer -->
+    <footer>
+        <div class="social-links">
+            <a href="https://github.com/vkshah2" target="_blank" rel="noopener">GitHub</a>
+            <a href="https://X.com/vkshah2" target="_blank" rel="noopener">Twitter</a>
+            <a href="mailto:vkshah2@gmail.com?subject=Hi">Email</a>
+        </div>
+        <p>&copy; 2025 Vinit K Shah. All rights reserved.</p>
+    </footer>
 
-                <a href="https://7-zip.org" class="link-card" target="_blank" rel="noopener">
-                    <div class="link-header
+    <script src="main.js"></script>
+</body>
+</html>
