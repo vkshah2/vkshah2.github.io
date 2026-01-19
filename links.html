@@ -3,41 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Curated collection of development tools, design resources, and learning materials handpicked by Vinit K Shah.">
-    <meta name="robots" content="noindex, nofollow">
-    <title>Links - Vinit</title>
+    <title>My Resources - Vinit</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💻</text></svg>">
-    <link rel="stylesheet" href="styles.css">
     <style>
-        /* Page Header */
+        :root {
+            --primary: #92400e;
+            --primary-dark: #78350f;
+            --accent: #d97706;
+            --bg-secondary: #fef3c7;
+            --text-primary: #1f2937;
+            --text-secondary: #6b7280;
+            --border: #e5e7eb;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: #fafafa;
+        }
+        nav {
+            background: white;
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+        .search-container {
+            flex: 1;
+            max-width: 500px;
+        }
+        #searchInput {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 2px solid var(--border);
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        #searchInput:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
         .page-header {
             max-width: 1200px;
             margin: 0 auto;
             padding: 3rem 2rem 2rem;
         }
-
         .page-header h1 {
             font-size: 2.5rem;
             margin-bottom: 0.5rem;
-            color: var(--text-primary);
         }
-
         .page-header p {
             font-size: 1.125rem;
             color: var(--text-secondary);
         }
-
-        /* Links Container */
+        .stats {
+            display: flex;
+            gap: 2rem;
+            margin-top: 1rem;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
         .links-container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 2rem;
         }
-
         .links-section {
             margin-bottom: 3rem;
         }
-
         .section-title {
             font-size: 1.75rem;
             margin-bottom: 1.5rem;
@@ -46,7 +97,6 @@
             align-items: center;
             gap: 0.5rem;
         }
-
         .section-title::before {
             content: '';
             width: 4px;
@@ -54,13 +104,11 @@
             background: var(--primary);
             border-radius: 2px;
         }
-
         .links-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 1.5rem;
         }
-
         .link-card {
             background: white;
             border: 1px solid var(--border);
@@ -70,20 +118,17 @@
             text-decoration: none;
             display: block;
         }
-
         .link-card:hover {
             transform: translateY(-4px);
             box-shadow: 0 10px 30px rgba(146, 64, 14, 0.15);
             border-color: var(--primary);
         }
-
         .link-header {
             display: flex;
             align-items: flex-start;
             gap: 1rem;
             margin-bottom: 1rem;
         }
-
         .link-icon {
             width: 48px;
             height: 48px;
@@ -95,37 +140,29 @@
             font-size: 1.5rem;
             flex-shrink: 0;
         }
-
-        .link-info {
-            flex: 1;
-        }
-
+        .link-info { flex: 1; }
         .link-title {
             font-size: 1.125rem;
             font-weight: 600;
             color: var(--text-primary);
             margin-bottom: 0.25rem;
         }
-
         .link-url {
             font-size: 0.875rem;
             color: var(--accent);
             word-break: break-all;
         }
-
         .link-description {
             color: var(--text-secondary);
             font-size: 0.9375rem;
             line-height: 1.5;
         }
-
         .link-tags {
             display: flex;
             gap: 0.5rem;
             flex-wrap: wrap;
             margin-top: 1rem;
         }
-
         .tag {
             background: var(--bg-secondary);
             color: var(--primary-dark);
@@ -134,289 +171,223 @@
             font-size: 0.75rem;
             font-weight: 600;
         }
-
         footer {
             margin-top: 4rem;
+            padding: 2rem;
+            text-align: center;
+            border-top: 1px solid var(--border);
+            background: white;
         }
-
-        /* Responsive */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1rem;
+        }
+        .social-links a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        footer p {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+        }
+        .hidden { display: none; }
         @media (max-width: 768px) {
-            .page-header h1 {
-                font-size: 2rem;
-            }
-
-            .links-grid {
-                grid-template-columns: 1fr;
-            }
+            .page-header h1 { font-size: 2rem; }
+            .links-grid { grid-template-columns: 1fr; }
+            .stats { flex-direction: column; gap: 0.5rem; }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
     <nav>
         <div class="nav-container">
-            <a href="index.html" class="logo">Vinit</a>
-            <div class="menu-toggle" onclick="toggleMenu()" aria-label="Toggle navigation menu">
-                <span></span>
-                <span></span>
-                <span></span>
+            <a href="#" class="logo">My Resources</a>
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Search resources...">
             </div>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="https://vkshah2.blogspot.com" target="_blank" rel="noopener noreferrer">Blog</a></li>
-                <li><a href="links.html" class="active">Links</a></li>
-                <li><a href="about.html">About</a></li>
-            </ul>
         </div>
     </nav>
 
-    <!-- Page Header -->
     <div class="page-header">
-        <h1>Links & Resources</h1>
-        <p>A curated collection of websites, tools, and resources I find useful and interesting</p>
+        <h1>My Digital Resource Library</h1>
+        <p>Comprehensive collection of websites, apps, and software for daily productivity</p>
+        <div class="stats">
+            <span id="totalResources">📊 Resources: Loading...</span>
+            <span>📁 20 Categories</span>
+        </div>
     </div>
 
-    <!-- Links Container -->
-    <div class="links-container">
-        <!-- Development Tools -->
-        <section class="links-section">
-            <h2 class="section-title">Development Tools</h2>
-            <div class="links-grid">
-                <a href="https://github.com" class="link-card" target="_blank" rel="noopener">
-                    <div class="link-header">
-                        <div class="link-icon">🐙</div>
-                        <div class="link-info">
-                            <div class="link-title">GitHub</div>
-                            <div class="link-url">github.com</div>
-                        </div>
-                    </div>
-                    <p class="link-description">
-                        The world's leading platform for version control and collaboration. Essential for any developer.
-                    </p>
-                    <div class="link-tags">
-                        <span class="tag">Git</span>
-                        <span class="tag">Collaboration</span>
-                    </div>
-                </a>
+    <div class="links-container" id="linksContainer"></div>
 
-                <a href="https://code.visualstudio.com" class="link-card" target="_blank" rel="noopener">
-                    <div class="link-header">
-                        <div class="link-icon">💻</div>
-                        <div class="link-info">
-                            <div class="link-title">VS Code</div>
-                            <div class="link-url">code.visualstudio.com</div>
-                        </div>
-                    </div>
-                    <p class="link-description">
-                        My favorite code editor. Lightweight, powerful, and with an amazing extension ecosystem.
-                    </p>
-                    <div class="link-tags">
-                        <span class="tag">Editor</span>
-                        <span class="tag">IDE</span>
-                    </div>
-                </a>
-
-                <a href="https://stackoverflow.com" class="link-card" target="_blank" rel="noopener">
-                    <div class="link-header">
-                        <div class="link-icon">📚</div>
-                        <div class="link-info">
-                            <div class="link-title">Stack Overflow</div>
-                            <div class="link-url">stackoverflow.com</div>
-                        </div>
-                    </div>
-                    <p class="link-description">
-                        The go-to Q&A platform for developers. If you have a coding question, someone has probably answered it here.
-                    </p>
-                    <div class="link-tags">
-                        <span class="tag">Q&A</span>
-                        <span class="tag">Community</span>
-                    </div>
-                </a>
-            </div>
-        </section>
-
-        <!-- Design Resources -->
-        <section class="links-section">
-            <h2 class="section-title">Design Resources</h2>
-            <div class="links-grid">
-                <a href="https://dribbble.com" class="link-card" target="_blank" rel="noopener">
-                    <div class="link-header">
-                        <div class="link-icon">🎨</div>
-                        <div class="link-info">
-                            <div class="link-title">Dribbble</div>
-                            <div class="link-url">dribbble.com</div>
-                        </div>
-                    </div>
-                    <p class="link-description">
-                        A community of designers sharing their work. Great for inspiration and discovering design trends.
-                    </p>
-                    <div class="link-tags">
-                        <span class="tag">Inspiration</span>
-                        <span class="tag">Design</span>
-                    </div>
-                </a>
-
-                <a href="https://fonts.google.com" class="link-card" target="_blank" rel="noopener">
-                    <div class="link-header">
-                        <div class="link-icon">🔤</div>
-                        <div class="link-info">
-                            <div class="link-title">Google Fonts</div>
-                            <div class="link-url">fonts.google.com</div>
-                        </div>
-                    </div>
-                    <p class="link-description">
-                        Free, open-source fonts optimized for the web. Easy to use and beautiful typography.
-                    </p>
-                    <div class="link-tags">
-                        <span class="tag">Typography</span>
-                        <span class="tag">Free</span>
-                    </div>
-                </a>
-
-                <a href="https://coolors.co" class="link-card" target="_blank" rel="noopener">
-                    <div class="link-header">
-                        <div class="link-icon">🎨</div>
-                        <div class="link-info">
-                            <div class="link-title">Coolors</div>
-                            <div class="link-url">coolors.co</div>
-                        </div>
-                    </div>
-                    <p class="link-description">
-                        Fast color palette generator. Perfect for quickly creating beautiful color schemes.
-                    </p>
-                    <div class="link-tags">
-                        <span class="tag">Colors</span>
-                        <span class="tag">Tool</span>
-                    </div>
-                </a>
-            </div>
-        </section>
-
-        <!-- Learning Resources -->
-        <section class="links-section">
-            <h2 class="section-title">Learning Resources</h2>
-            <div class="links-grid">
-                <a href="https://developer.mozilla.org" class="link-card" target="_blank" rel="noopener">
-                    <div class="link-header">
-                        <div class="link-icon">📖</div>
-                        <div class="link-info">
-                            <div class="link-title">MDN Web Docs</div>
-                            <div class="link-url">developer.mozilla.org</div>
-                        </div>
-                    </div>
-                    <p class="link-description">
-                        The most comprehensive and accurate web development documentation. A must-bookmark for any web developer.
-                    </p>
-                    <div class="link-tags">
-                        <span class="tag">Documentation</span>
-                        <span class="tag">Reference</span>
-                    </div>
-                </a>
-
-                <a href="https://www.freecodecamp.org" class="link-card" target="_blank" rel="noopener">
-                    <div class="link-header">
-                        <div class="link-icon">🎓</div>
-                        <div class="link-info">
-                            <div class="link-title">freeCodeCamp</div>
-                            <div class="link-url">freecodecamp.org</div>
-                        </div>
-                    </div>
-                    <p class="link-description">
-                        Learn to code for free with interactive lessons and certifications. Great for beginners and experienced developers.
-                    </p>
-                    <div class="link-tags">
-                        <span class="tag">Tutorial</span>
-                        <span class="tag">Free</span>
-                    </div>
-                </a>
-
-                <a href="https://css-tricks.com" class="link-card" target="_blank" rel="noopener">
-                    <div class="link-header">
-                        <div class="link-icon">✨</div>
-                        <div class="link-info">
-                            <div class="link-title">CSS-Tricks</div>
-                            <div class="link-url">css-tricks.com</div>
-                        </div>
-                    </div>
-                    <p class="link-description">
-                        Articles, guides, and resources about CSS and web design. Excellent tutorials and tips.
-                    </p>
-                    <div class="link-tags">
-                        <span class="tag">CSS</span>
-                        <span class="tag">Tutorial</span>
-                    </div>
-                </a>
-            </div>
-        </section>
-
-        <!-- Productivity -->
-        <section class="links-section">
-            <h2 class="section-title">Productivity</h2>
-            <div class="links-grid">
-                <a href="https://notion.so" class="link-card" target="_blank" rel="noopener">
-                    <div class="link-header">
-                        <div class="link-icon">📝</div>
-                        <div class="link-info">
-                            <div class="link-title">Notion</div>
-                            <div class="link-url">notion.so</div>
-                        </div>
-                    </div>
-                    <p class="link-description">
-                        All-in-one workspace for notes, tasks, wikis, and databases. My go-to tool for organization.
-                    </p>
-                    <div class="link-tags">
-                        <span class="tag">Notes</span>
-                        <span class="tag">Organization</span>
-                    </div>
-                </a>
-
-                <a href="https://todoist.com" class="link-card" target="_blank" rel="noopener">
-                    <div class="link-header">
-                        <div class="link-icon">✅</div>
-                        <div class="link-info">
-                            <div class="link-title">Todoist</div>
-                            <div class="link-url">todoist.com</div>
-                        </div>
-                    </div>
-                    <p class="link-description">
-                        Simple yet powerful task manager. Helps me stay on top of everything I need to do.
-                    </p>
-                    <div class="link-tags">
-                        <span class="tag">Tasks</span>
-                        <span class="tag">GTD</span>
-                    </div>
-                </a>
-
-                <a href="https://raindrop.io" class="link-card" target="_blank" rel="noopener">
-                    <div class="link-header">
-                        <div class="link-icon">🔖</div>
-                        <div class="link-info">
-                            <div class="link-title">Raindrop.io</div>
-                            <div class="link-url">raindrop.io</div>
-                        </div>
-                    </div>
-                    <p class="link-description">
-                        Beautiful bookmark manager. Perfect for organizing all those interesting links you come across.
-                    </p>
-                    <div class="link-tags">
-                        <span class="tag">Bookmarks</span>
-                        <span class="tag">Organization</span>
-                    </div>
-                </a>
-            </div>
-        </section>
-    </div>
-
-    <!-- Footer -->
     <footer>
         <div class="social-links">
-            <a href="https://github.com/vkshah2" target="_blank" rel="noopener">GitHub</a>
-            <a href="https://X.com/vkshah2" target="_blank" rel="noopener">Twitter</a>
-            <a href="mailto:vkshah2@gmail.com?subject=Hi">Email</a>
+            <a href="https://github.com/vkshah2" target="_blank">GitHub</a>
+            <a href="https://X.com/vkshah2" target="_blank">Twitter</a>
+            <a href="mailto:vkshah2@gmail.com">Email</a>
         </div>
         <p>&copy; 2025 Vinit K Shah. All rights reserved.</p>
     </footer>
 
-    <script src="main.js"></script>
+    <script>
+const resources = {
+    "Search & Productivity": [
+        {icon:"🔍",title:"Google Search",url:"google.com",link:"https://www.google.com",desc:"World's most popular search engine",tags:["Search","Essential"]},
+        {icon:"🏢",title:"Google Workspace",url:"workspace.google.com",link:"https://workspace.google.com",desc:"Gmail, Drive, Docs, Sheets, Calendar suite",tags:["Productivity","Cloud"]},
+        {icon:"📦",title:"Microsoft 365",url:"microsoft.com/microsoft-365",link:"https://www.microsoft.com/microsoft-365",desc:"Word, Excel, PowerPoint, Outlook, Teams",tags:["Office","Essential"]}
+    ],
+    "Media & Entertainment": [
+        {icon:"📺",title:"YouTube",url:"youtube.com",link:"https://www.youtube.com",desc:"World's largest video platform",tags:["Video","Learning"]},
+        {icon:"🎵",title:"YouTube Music",url:"music.youtube.com",link:"https://music.youtube.com",desc:"Music streaming with personalized playlists",tags:["Music","Streaming"]},
+        {icon:"🎧",title:"Spotify",url:"spotify.com",link:"https://open.spotify.com",desc:"Music and podcast streaming",tags:["Music","Podcasts"]}
+    ],
+    "Finance & Investment": [
+        {icon:"💰",title:"Google Finance",url:"google.com/finance",link:"https://www.google.com/finance",desc:"Real-time stock market data and news",tags:["Stocks","Markets"]},
+        {icon:"📊",title:"Screener",url:"screener.in",link:"https://www.screener.in",desc:"Indian stock screening and analysis",tags:["Indian Stocks","Analysis"]},
+        {icon:"📈",title:"Chittorgarh",url:"chittorgarh.com",link:"https://www.chittorgarh.com",desc:"IPO and mutual fund information",tags:["IPO","Mutual Funds"]},
+        {icon:"📉",title:"TradingView",url:"tradingview.com",link:"https://www.tradingview.com",desc:"Advanced charting platform",tags:["Charting","Trading"]},
+        {icon:"💹",title:"MoneyControl",url:"moneycontrol.com",link:"https://www.moneycontrol.com",desc:"Indian financial news and market data",tags:["News","Indian Market"]}
+    ],
+    "Communication": [
+        {icon:"💬",title:"WhatsApp",url:"web.whatsapp.com",link:"https://web.whatsapp.com",desc:"Most popular messaging app",tags:["Messaging","Essential"]},
+        {icon:"✈️",title:"Telegram",url:"telegram.org",link:"https://web.telegram.org",desc:"Fast, secure messaging with channels",tags:["Messaging","Channels"]},
+        {icon:"🎮",title:"Discord",url:"discord.com",link:"https://discord.com",desc:"Community voice and text chat",tags:["Community","Voice"]},
+        {icon:"🔒",title:"Signal",url:"signal.org",link:"https://signal.org",desc:"Privacy-focused encrypted messaging",tags:["Privacy","Encryption"]}
+    ],
+    "Blogging & Content": [
+        {icon:"📝",title:"Blogger",url:"blogger.com",link:"https://www.blogger.com",desc:"Free blogging by Google",tags:["Blogging","Free"]},
+        {icon:"✍️",title:"Medium",url:"medium.com",link:"https://medium.com",desc:"Publishing platform for writers",tags:["Writing","Publishing"]},
+        {icon:"🌐",title:"WordPress",url:"wordpress.com",link:"https://wordpress.com",desc:"Popular website and blog platform",tags:["CMS","Websites"]}
+    ],
+    "Learning & Memory": [
+        {icon:"🧠",title:"Anki/AnkiDroid",url:"ankiweb.net",link:"https://ankiweb.net",desc:"Spaced repetition flashcards",tags:["Flashcards","Memory"]},
+        {icon:"📚",title:"Quizlet",url:"quizlet.com",link:"https://quizlet.com",desc:"Flashcards and study games",tags:["Study","Education"]},
+        {icon:"🎯",title:"RemNote",url:"remnote.com",link:"https://www.remnote.com",desc:"Notes with built-in spaced repetition",tags:["Notes","SRS"]}
+    ],
+    "AI & Generative Tools": [
+        {icon:"🤖",title:"ChatGPT",url:"chat.openai.com",link:"https://chat.openai.com",desc:"Advanced AI for writing and coding",tags:["AI Chat","Writing"]},
+        {icon:"🧑‍💼",title:"Claude",url:"claude.ai",link:"https://claude.ai",desc:"AI assistant for analysis and tasks",tags:["AI","Analysis"]},
+        {icon:"✨",title:"Gemini",url:"gemini.google.com",link:"https://gemini.google.com",desc:"Google's multimodal AI",tags:["AI","Multimodal"]},
+        {icon:"🔎",title:"Perplexity",url:"perplexity.ai",link:"https://www.perplexity.ai",desc:"AI search with cited answers",tags:["AI Search","Research"]},
+        {icon:"🎨",title:"Midjourney",url:"midjourney.com",link:"https://www.midjourney.com",desc:"AI image generation",tags:["AI Art","Images"]}
+    ],
+    "Cloud Storage": [
+        {icon:"☁️",title:"OneDrive",url:"onedrive.live.com",link:"https://onedrive.live.com",desc:"Microsoft cloud storage",tags:["Cloud","Storage"]},
+        {icon:"💾",title:"Google Drive",url:"drive.google.com",link:"https://drive.google.com",desc:"Google cloud storage and collaboration",tags:["Cloud","Collaboration"]},
+        {icon:"🔐",title:"MEGA",url:"mega.nz",link:"https://mega.nz",desc:"Encrypted cloud storage",tags:["Cloud","Encryption"]},
+        {icon:"📦",title:"Dropbox",url:"dropbox.com",link:"https://www.dropbox.com",desc:"File sync and sharing",tags:["Cloud","Sync"]}
+    ],
+    "Web Browsers": [
+        {icon:"🌐",title:"Chrome",url:"google.com/chrome",link:"https://www.google.com/chrome",desc:"Fast, secure Google browser",tags:["Browser","Essential"]},
+        {icon:"🌊",title:"Edge",url:"microsoft.com/edge",link:"https://www.microsoft.com/edge",desc:"Microsoft browser with AI features",tags:["Browser","AI"]},
+        {icon:"🦊",title:"Firefox",url:"firefox.com",link:"https://www.mozilla.org/firefox",desc:"Privacy-focused open source browser",tags:["Browser","Privacy"]},
+        {icon:"🛡️",title:"Brave",url:"brave.com",link:"https://brave.com",desc:"Privacy browser with ad blocking",tags:["Browser","Privacy"]}
+    ],
+    "Android Apps": [
+        {icon:"📱",title:"Play Store",url:"play.google.com",link:"https://play.google.com/store",desc:"Official Android app marketplace",tags:["Apps","Android"]},
+        {icon:"🔓",title:"F-Droid",url:"f-droid.org",link:"https://f-droid.org",desc:"Open source Android apps",tags:["FOSS","Android"]},
+        {icon:"📲",title:"APKMirror",url:"apkmirror.com",link:"https://www.apkmirror.com",desc:"Safe APK downloads",tags:["APK","Android"]}
+    ],
+    "Open Source": [
+        {icon:"🐙",title:"GitHub",url:"github.com",link:"https://github.com",desc:"Code hosting and collaboration",tags:["Git","Code"]},
+        {icon:"🦊",title:"GitLab",url:"gitlab.com",link:"https://gitlab.com",desc:"DevOps platform for Git",tags:["Git","DevOps"]},
+        {icon:"📂",title:"SourceForge",url:"sourceforge.net",link:"https://sourceforge.net",desc:"Open source software directory",tags:["FOSS","Downloads"]}
+    ],
+    "Note-Taking": [
+        {icon:"🗒️",title:"Obsidian",url:"obsidian.md",link:"https://obsidian.md",desc:"Local-first markdown knowledge base",tags:["Notes","Markdown"]},
+        {icon:"📋",title:"Notion",url:"notion.so",link:"https://notion.so",desc:"All-in-one workspace",tags:["Notes","Workspace"]},
+        {icon:"🐘",title:"Evernote",url:"evernote.com",link:"https://evernote.com",desc:"Note organization and capture",tags:["Notes","Capture"]},
+        {icon:"🔗",title:"Logseq",url:"logseq.com",link:"https://logseq.com",desc:"Knowledge graph note-taking",tags:["Notes","Graph"]}
+    ],
+    "Task Management": [
+        {icon:"✅",title:"Todoist",url:"todoist.com",link:"https://todoist.com",desc:"Simple powerful task manager",tags:["Tasks","GTD"]},
+        {icon:"📊",title:"Trello",url:"trello.com",link:"https://trello.com",desc:"Kanban boards for projects",tags:["Kanban","Projects"]},
+        {icon:"🎯",title:"Asana",url:"asana.com",link:"https://asana.com",desc:"Work management platform",tags:["Projects","Teams"]},
+        {icon:"⚡",title:"ClickUp",url:"clickup.com",link:"https://clickup.com",desc:"All-in-one productivity platform",tags:["Tasks","Productivity"]}
+    ],
+    "Time Management": [
+        {icon:"🍅",title:"Pomodoro Timer",url:"pomofocus.io",link:"https://pomofocus.io",desc:"Pomodoro technique timer",tags:["Pomodoro","Focus"]},
+        {icon:"⏱️",title:"Toggl",url:"toggl.com",link:"https://toggl.com",desc:"Time tracking for projects",tags:["Time Tracking","Analytics"]},
+        {icon:"🌲",title:"Forest",url:"forestapp.cc",link:"https://www.forestapp.cc",desc:"Focus timer with gamification",tags:["Focus","Gamified"]}
+    ],
+    "Development": [
+        {icon:"💻",title:"VS Code",url:"code.visualstudio.com",link:"https://code.visualstudio.com",desc:"Powerful code editor",tags:["Editor","IDE"]},
+        {icon:"📚",title:"Stack Overflow",url:"stackoverflow.com",link:"https://stackoverflow.com",desc:"Q&A for developers",tags:["Q&A","Community"]},
+        {icon:"🔧",title:"Postman",url:"postman.com",link:"https://www.postman.com",desc:"API development platform",tags:["API","Testing"]}
+    ],
+    "Design & Creative": [
+        {icon:"🎨",title:"Figma",url:"figma.com",link:"https://www.figma.com",desc:"Collaborative design tool",tags:["Design","UI/UX"]},
+        {icon:"✏️",title:"Canva",url:"canva.com",link:"https://www.canva.com",desc:"Graphic design made easy",tags:["Design","Templates"]},
+        {icon:"🖌️",title:"GIMP",url:"gimp.org",link:"https://www.gimp.org",desc:"Free photo editing software",tags:["FOSS","Photo Editing"]}
+    ],
+    "Email & Calendar": [
+        {icon:"📧",title:"Gmail",url:"gmail.com",link:"https://mail.google.com",desc:"Google email service",tags:["Email","Essential"]},
+        {icon:"📮",title:"Outlook",url:"outlook.com",link:"https://outlook.com",desc:"Microsoft email and calendar",tags:["Email","Calendar"]},
+        {icon:"📅",title:"Google Calendar",url:"calendar.google.com",link:"https://calendar.google.com",desc:"Schedule and event management",tags:["Calendar","Scheduling"]}
+    ],
+    "Security & Password": [
+        {icon:"🔑",title:"Bitwarden",url:"bitwarden.com",link:"https://bitwarden.com",desc:"Open source password manager",tags:["Password","Security"]},
+        {icon:"🔒",title:"1Password",url:"1password.com",link:"https://1password.com",desc:"Premium password manager",tags:["Password","Security"]},
+        {icon:"🛡️",title:"Authy",url:"authy.com",link:"https://authy.com",desc:"Two-factor authentication app",tags:["2FA","Security"]}
+    ],
+    "Utilities": [
+        {icon:"📦",title:"7-Zip",url:"7-zip.org",link:"https://www.7-zip.org",desc:"File archiver and compressor",tags:["Compression","FOSS"]},
+        {icon:"🎬",title:"VLC",url:"videolan.org",link:"https://www.videolan.org",desc:"Universal media player",tags:["Media","FOSS"]},
+        {icon:"📚",title:"Calibre",url:"calibre-ebook.com",link:"https://calibre-ebook.com",desc:"E-book management",tags:["Ebooks","Management"]}
+    ]
+};
+
+function renderResources() {
+    const container = document.getElementById('linksContainer');
+    let totalCount = 0;
+    let html = '';
+    
+    for (const [category, items] of Object.entries(resources)) {
+        totalCount += items.length;
+        html += `
+        <section class="links-section">
+            <h2 class="section-title">${category}</h2>
+            <div class="links-grid">
+                ${items.map(item => `
+                    <a href="${item.link}" class="link-card" target="_blank" rel="noopener">
+                        <div class="link-header">
+                            <div class="link-icon">${item.icon}</div>
+                            <div class="link-info">
+                                <div class="link-title">${item.title}</div>
+                                <div class="link-url">${item.url}</div>
+                            </div>
+                        </div>
+                        <p class="link-description">${item.desc}</p>
+                        <div class="link-tags">
+                            ${item.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+                        </div>
+                    </a>
+                `).join('')}
+            </div>
+        </section>`;
+    }
+    
+    container.innerHTML = html;
+    document.getElementById('totalResources').textContent = `📊 Total Resources: ${totalCount}`;
+}
+
+document.getElementById('searchInput').addEventListener('input', (e) => {
+    const query = e.target.value.toLowerCase();
+    document.querySelectorAll('.link-card').forEach(card => {
+        const text = card.textContent.toLowerCase();
+        card.style.display = text.includes(query) ? 'block' : 'none';
+    });
+    
+    document.querySelectorAll('.links-section').forEach(section => {
+        const visible = Array.from(section.querySelectorAll('.link-card'))
+            .some(card => card.style.display !== 'none');
+        section.style.display = visible ? 'block' : 'none';
+    });
+});
+
+renderResources();
+    </script>
 </body>
 </html>
