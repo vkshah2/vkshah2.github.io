@@ -194,10 +194,64 @@
             font-size: 0.875rem;
         }
         .hidden { display: none; }
+        
+        .category-index {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem 2rem;
+        }
+        
+        .index-title {
+            font-size: 1.75rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+        }
+        
+        .index-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 0.75rem;
+        }
+        
+        .index-item {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 0.5rem;
+            padding: 0.75rem 1rem;
+            transition: all 0.2s;
+            cursor: pointer;
+            text-decoration: none;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .index-item:hover {
+            background: var(--bg-secondary);
+            border-color: var(--primary);
+            transform: translateX(4px);
+        }
+        
+        .index-item-name {
+            font-weight: 500;
+            font-size: 0.9375rem;
+        }
+        
+        .index-item-count {
+            margin-left: auto;
+            font-size: 0.8125rem;
+            color: var(--text-secondary);
+            background: var(--bg-secondary);
+            padding: 0.125rem 0.5rem;
+            border-radius: 0.75rem;
+        }
+        
         @media (max-width: 768px) {
             .page-header h1 { font-size: 2rem; }
             .links-grid { grid-template-columns: 1fr; }
             .stats { flex-direction: column; gap: 0.5rem; }
+            .index-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -216,8 +270,13 @@
         <p>Comprehensive collection of websites, apps, and software for daily productivity</p>
         <div class="stats">
             <span id="totalResources">📊 Resources: Loading...</span>
-            <span>📁 21 Categories</span>
+            <span>📁 36 Categories</span>
         </div>
+    </div>
+
+    <div class="category-index">
+        <h2 class="index-title">📑 Category Index</h2>
+        <div class="index-grid" id="categoryIndex"></div>
     </div>
 
     <div class="links-container" id="linksContainer"></div>
@@ -254,7 +313,8 @@ const resources = {
     ],
     "Media & Entertainment": [
         {icon:"📺",title:"YouTube",url:"youtube.com",link:"https://www.youtube.com",desc:"World's largest video platform",tags:["Video","Learning"]},
-        {icon:"🎵",title:"YouTube Music",url:"music.youtube.com",link:"https://music.youtube.com",desc:"Music streaming with personalized playlists",tags:["Music","Streaming"]}
+        {icon:"🎵",title:"YouTube Music",url:"music.youtube.com",link:"https://music.youtube.com",desc:"Music streaming with personalized playlists",tags:["Music","Streaming"]},
+        {icon:"🎶",title:"Amazon Music",url:"music.amazon.com",link:"https://music.amazon.com",desc:"Amazon's music streaming service",tags:["Music","Streaming"]}
     ],
     "Finance & Investment": [
         {icon:"💰",title:"Google Finance",url:"google.com/finance",link:"https://www.google.com/finance",desc:"Real-time stock market data and news",tags:["Stocks","Markets"]},
@@ -268,6 +328,105 @@ const resources = {
         {icon:"✈️",title:"Telegram",url:"telegram.org",link:"https://web.telegram.org",desc:"Fast, secure messaging with channels",tags:["Messaging","Channels"]},
         {icon:"🎮",title:"Discord",url:"discord.com",link:"https://discord.com",desc:"Community voice and text chat",tags:["Community","Voice"]},
         {icon:"🔒",title:"Signal",url:"signal.org",link:"https://signal.org",desc:"Privacy-focused encrypted messaging",tags:["Privacy","Encryption"]}
+    ],
+    "Reference & Knowledge": [
+        {icon:"📚",title:"Wikipedia",url:"wikipedia.org",link:"https://www.wikipedia.org",desc:"Free online encyclopedia",tags:["Encyclopedia","Knowledge"]},
+        {icon:"📦",title:"Internet Archive",url:"archive.org",link:"https://archive.org",desc:"Digital library of websites, books, and media",tags:["Archive","Library"]},
+        {icon:"📖",title:"Wiktionary",url:"wiktionary.org",link:"https://www.wiktionary.org",desc:"Free dictionary and thesaurus",tags:["Dictionary","Reference"]},
+        {icon:"📰",title:"Wikimedia Commons",url:"commons.wikimedia.org",link:"https://commons.wikimedia.org",desc:"Free media file repository",tags:["Media","Images"]},
+        {icon:"📓",title:"Wikibooks",url:"wikibooks.org",link:"https://www.wikibooks.org",desc:"Free textbooks and manuals",tags:["Books","Education"]},
+        {icon:"🔬",title:"Wikiversity",url:"wikiversity.org",link:"https://www.wikiversity.org",desc:"Free learning resources and courses",tags:["Learning","Academic"]},
+        {icon:"🗄️",title:"Project Gutenberg",url:"gutenberg.org",link:"https://www.gutenberg.org",desc:"Free ebook library",tags:["Ebooks","Classic"]}
+    ],
+    "Shopping & E-commerce": [
+        {icon:"🛒",title:"Amazon",url:"amazon.in",link:"https://www.amazon.in",desc:"Online marketplace for everything",tags:["Shopping","E-commerce"]},
+        {icon:"🛍️",title:"Flipkart",url:"flipkart.com",link:"https://www.flipkart.com",desc:"India's leading e-commerce platform",tags:["Shopping","Indian"]},
+        {icon:"👗",title:"Myntra",url:"myntra.com",link:"https://www.myntra.com",desc:"Fashion and lifestyle shopping",tags:["Fashion","Clothing"]},
+        {icon:"💰",title:"Meesho",url:"meesho.com",link:"https://www.meesho.com",desc:"Budget-friendly online shopping",tags:["Shopping","Budget"]},
+        {icon:"🌐",title:"eBay",url:"ebay.com",link:"https://www.ebay.com",desc:"Global online auction and shopping",tags:["Marketplace","Auction"]},
+        {icon:"🏪",title:"AliExpress",url:"aliexpress.com",link:"https://www.aliexpress.com",desc:"International online retail service",tags:["Shopping","International"]}
+    ],
+    "News & Media": [
+        {icon:"📰",title:"Google News",url:"news.google.com",link:"https://news.google.com",desc:"Personalized news aggregator",tags:["News","Aggregator"]},
+        {icon:"🗨️",title:"Reddit",url:"reddit.com",link:"https://www.reddit.com",desc:"Social news and discussion platform",tags:["Community","Discussion"]},
+        {icon:"💻",title:"Hacker News",url:"news.ycombinator.com",link:"https://news.ycombinator.com",desc:"Tech and startup news community",tags:["Tech","Startups"]},
+        {icon:"🐦",title:"Twitter/X",url:"x.com",link:"https://x.com",desc:"Social media and news platform",tags:["Social","News"]},
+        {icon:"📡",title:"Feedly",url:"feedly.com",link:"https://feedly.com",desc:"RSS feed reader and news aggregator",tags:["RSS","Feeds"]}
+    ],
+    "Video Conferencing": [
+        {icon:"📹",title:"Zoom",url:"zoom.us",link:"https://zoom.us",desc:"Video conferencing and meetings",tags:["Video Call","Meetings"]},
+        {icon:"🎥",title:"Google Meet",url:"meet.google.com",link:"https://meet.google.com",desc:"Google's video conferencing",tags:["Video Call","Google"]},
+        {icon:"👥",title:"Microsoft Teams",url:"teams.microsoft.com",link:"https://teams.microsoft.com",desc:"Collaboration and video meetings",tags:["Video Call","Collaboration"]},
+        {icon:"💬",title:"Skype",url:"skype.com",link:"https://www.skype.com",desc:"Video calls and messaging",tags:["Video Call","Messaging"]}
+    ],
+    "File Transfer & Sharing": [
+        {icon:"📤",title:"WeTransfer",url:"wetransfer.com",link:"https://wetransfer.com",desc:"Simple file sharing up to 2GB free",tags:["File Transfer","Sharing"]},
+        {icon:"🔗",title:"Send Anywhere",url:"send-anywhere.com",link:"https://send-anywhere.com",desc:"Direct device-to-device file transfer",tags:["File Transfer","P2P"]},
+        {icon:"☁️",title:"Firefox Send Alternative",url:"send.vis.ee",link:"https://send.vis.ee",desc:"Encrypted file sharing",tags:["File Transfer","Encrypted"]}
+    ],
+    "Social Media": [
+        {icon:"👤",title:"Facebook",url:"facebook.com",link:"https://www.facebook.com",desc:"Social networking platform",tags:["Social","Networking"]},
+        {icon:"📸",title:"Instagram",url:"instagram.com",link:"https://www.instagram.com",desc:"Photo and video sharing",tags:["Social","Photos"]},
+        {icon:"💼",title:"LinkedIn",url:"linkedin.com",link:"https://www.linkedin.com",desc:"Professional networking",tags:["Professional","Networking"]},
+        {icon:"🐦",title:"Twitter/X",url:"x.com",link:"https://x.com",desc:"Microblogging and social news",tags:["Social","Microblogging"]},
+        {icon:"🦣",title:"Mastodon",url:"joinmastodon.org",link:"https://joinmastodon.org",desc:"Decentralized social network",tags:["Social","Open Source"]}
+    ],
+    "Gaming": [
+        {icon:"🎮",title:"Steam",url:"steampowered.com",link:"https://store.steampowered.com",desc:"PC gaming platform and store",tags:["Gaming","PC"]},
+        {icon:"🎯",title:"Epic Games",url:"epicgames.com",link:"https://www.epicgames.com",desc:"Gaming platform with free games",tags:["Gaming","Free Games"]},
+        {icon:"🕹️",title:"GOG",url:"gog.com",link:"https://www.gog.com",desc:"DRM-free game store",tags:["Gaming","DRM-free"]},
+        {icon:"🎲",title:"Xbox Game Pass",url:"xbox.com/gamepass",link:"https://www.xbox.com/xbox-game-pass",desc:"Gaming subscription service",tags:["Gaming","Subscription"]}
+    ],
+    "VPN & Privacy Tools": [
+        {icon:"🔐",title:"ProtonVPN",url:"protonvpn.com",link:"https://protonvpn.com",desc:"Secure VPN with free tier",tags:["VPN","Privacy"]},
+        {icon:"🛡️",title:"NordVPN",url:"nordvpn.com",link:"https://nordvpn.com",desc:"Premium VPN service",tags:["VPN","Security"]},
+        {icon:"🔒",title:"Mullvad VPN",url:"mullvad.net",link:"https://mullvad.net",desc:"Privacy-focused VPN",tags:["VPN","Privacy"]},
+        {icon:"🚫",title:"uBlock Origin",url:"ublockorigin.com",link:"https://ublockorigin.com",desc:"Ad blocker extension",tags:["Ad Blocker","Privacy"]}
+    ],
+    "Code Collaboration": [
+        {icon:"🐙",title:"GitHub",url:"github.com",link:"https://github.com",desc:"Code hosting and collaboration",tags:["Git","Code"]},
+        {icon:"🖥️",title:"GitHub Desktop",url:"desktop.github.com",link:"https://desktop.github.com",desc:"Git GUI application",tags:["Git","Desktop"]},
+        {icon:"🦊",title:"GitLab",url:"gitlab.com",link:"https://gitlab.com",desc:"DevOps platform for Git",tags:["Git","DevOps"]},
+        {icon:"📝",title:"CodePen",url:"codepen.io",link:"https://codepen.io",desc:"Online code editor and playground",tags:["Code","Frontend"]},
+        {icon:"⚡",title:"Replit",url:"replit.com",link:"https://replit.com",desc:"Online IDE for collaborative coding",tags:["IDE","Collaboration"]}
+    ],
+    "Image & Photo Tools": [
+        {icon:"🖼️",title:"Unsplash",url:"unsplash.com",link:"https://unsplash.com",desc:"Free high-quality stock photos",tags:["Photos","Stock"]},
+        {icon:"📷",title:"Pexels",url:"pexels.com",link:"https://www.pexels.com",desc:"Free stock photos and videos",tags:["Photos","Videos"]},
+        {icon:"🎨",title:"Imgur",url:"imgur.com",link:"https://imgur.com",desc:"Image hosting and sharing",tags:["Images","Hosting"]},
+        {icon:"🗜️",title:"TinyPNG",url:"tinypng.com",link:"https://tinypng.com",desc:"Image compression tool",tags:["Compression","Optimization"]}
+    ],
+    "PDF Tools": [
+        {icon:"📄",title:"Adobe Acrobat",url:"acrobat.adobe.com",link:"https://www.adobe.com/acrobat",desc:"Professional PDF editor",tags:["PDF","Editor"]},
+        {icon:"💝",title:"ILovePDF",url:"ilovepdf.com",link:"https://www.ilovepdf.com",desc:"Free online PDF tools",tags:["PDF","Free"]},
+        {icon:"🔧",title:"Smallpdf",url:"smallpdf.com",link:"https://smallpdf.com",desc:"PDF converter and editor",tags:["PDF","Converter"]},
+        {icon:"📋",title:"PDF24",url:"pdf24.org",link:"https://www.pdf24.org",desc:"Free PDF creator and tools",tags:["PDF","Tools"]}
+    ],
+    "Screen Recording": [
+        {icon:"🎬",title:"OBS Studio",url:"obsproject.com",link:"https://obsproject.com",desc:"Free screen recording and streaming",tags:["Recording","Streaming"]},
+        {icon:"📹",title:"Loom",url:"loom.com",link:"https://www.loom.com",desc:"Quick screen recording and sharing",tags:["Recording","Sharing"]},
+        {icon:"📸",title:"ShareX",url:"getsharex.com",link:"https://getsharex.com",desc:"Screenshot and screen recording",tags:["Screenshot","Recording"]},
+        {icon:"✂️",title:"Snagit",url:"techsmith.com/snagit",link:"https://www.techsmith.com/screen-capture.html",desc:"Screen capture and recording",tags:["Screenshot","Editor"]}
+    ],
+    "Banking & Finance Apps": [
+        {icon:"💳",title:"Google Pay",url:"pay.google.com",link:"https://pay.google.com",desc:"UPI payments and wallet",tags:["UPI","Payments"]},
+        {icon:"📱",title:"PhonePe",url:"phonepe.com",link:"https://www.phonepe.com",desc:"UPI and digital payments",tags:["UPI","Payments"]},
+        {icon:"💰",title:"Paytm",url:"paytm.com",link:"https://paytm.com",desc:"Digital wallet and payments",tags:["Wallet","Payments"]},
+        {icon:"📊",title:"Zerodha",url:"zerodha.com",link:"https://zerodha.com",desc:"Stock trading platform",tags:["Trading","Stocks"]},
+        {icon:"📈",title:"Groww",url:"groww.in",link:"https://groww.in",desc:"Investment platform for stocks and mutual funds",tags:["Investment","Trading"]},
+        {icon:"💹",title:"Upstox",url:"upstox.com",link:"https://upstox.com",desc:"Trading and investment platform",tags:["Trading","Investment"]}
+    ],
+    "Health & Fitness": [
+        {icon:"🏃",title:"Google Fit",url:"fit.google.com",link:"https://www.google.com/fit",desc:"Activity and health tracking",tags:["Fitness","Health"]},
+        {icon:"🧘",title:"Headspace",url:"headspace.com",link:"https://www.headspace.com",desc:"Meditation and mindfulness",tags:["Meditation","Wellness"]},
+        {icon:"😌",title:"Calm",url:"calm.com",link:"https://www.calm.com",desc:"Sleep and meditation app",tags:["Meditation","Sleep"]},
+        {icon:"💪",title:"MyFitnessPal",url:"myfitnesspal.com",link:"https://www.myfitnesspal.com",desc:"Calorie counter and fitness tracker",tags:["Fitness","Nutrition"]}
+    ],
+    "Reading & Books": [
+        {icon:"📚",title:"Kindle",url:"kindle.amazon.com",link:"https://www.amazon.com/kindle",desc:"Amazon's e-reader and bookstore",tags:["Ebooks","Reading"]},
+        {icon:"📖",title:"Google Play Books",url:"play.google.com/books",link:"https://play.google.com/store/books",desc:"E-books and audiobooks",tags:["Ebooks","Audiobooks"]},
+        {icon:"📕",title:"Goodreads",url:"goodreads.com",link:"https://www.goodreads.com",desc:"Book recommendations and reviews",tags:["Books","Community"]},
+        {icon:"📚",title:"Libby",url:"libbyapp.com",link:"https://www.overdrive.com/apps/libby",desc:"Library e-books and audiobooks",tags:["Library","Ebooks"]}
     ],
     "Blogging & Content": [
         {icon:"📝",title:"Blogger",url:"blogger.com",link:"https://www.blogger.com",desc:"Free blogging by Google",tags:["Blogging","Free"]},
@@ -286,6 +445,7 @@ const resources = {
         {icon:"🤖",title:"ChatGPT",url:"chat.openai.com",link:"https://chat.openai.com",desc:"Advanced AI for writing and coding",tags:["AI Chat","Writing"]},
         {icon:"🧑‍💼",title:"Claude",url:"claude.ai",link:"https://claude.ai",desc:"AI assistant for analysis and tasks",tags:["AI","Analysis"]},
         {icon:"✨",title:"Gemini",url:"gemini.google.com",link:"https://gemini.google.com",desc:"Google's multimodal AI",tags:["AI","Multimodal"]},
+        {icon:"🧠",title:"DeepSeek",url:"chat.deepseek.com",link:"https://chat.deepseek.com",desc:"Advanced AI model for reasoning and coding",tags:["AI","Reasoning"]},
         {icon:"📓",title:"NotebookLM",url:"notebooklm.google.com",link:"https://notebooklm.google.com",desc:"AI-powered research and note assistant",tags:["AI","Research"]},
         {icon:"🔎",title:"Perplexity",url:"perplexity.ai",link:"https://www.perplexity.ai",desc:"AI search with cited answers",tags:["AI Search","Research"]},
         {icon:"🎨",title:"Midjourney",url:"midjourney.com",link:"https://www.midjourney.com",desc:"AI image generation",tags:["AI Art","Images"]}
@@ -316,6 +476,7 @@ const resources = {
     "Note-Taking": [
         {icon:"🗒️",title:"Obsidian",url:"obsidian.md",link:"https://obsidian.md",desc:"Local-first markdown knowledge base",tags:["Notes","Markdown"]},
         {icon:"📋",title:"Notion",url:"notion.so",link:"https://notion.so",desc:"All-in-one workspace",tags:["Notes","Workspace"]},
+        {icon:"📓",title:"OneNote",url:"onenote.com",link:"https://www.onenote.com",desc:"Microsoft digital notebook",tags:["Notes","Microsoft"]},
         {icon:"📝",title:"Google Keep",url:"keep.google.com",link:"https://keep.google.com",desc:"Quick notes and lists by Google",tags:["Notes","Quick"]},
         {icon:"✏️",title:"Simplenote",url:"simplenote.com",link:"https://simplenote.com",desc:"Fast, simple note-taking",tags:["Notes","Minimal"]},
         {icon:"🐘",title:"Evernote",url:"evernote.com",link:"https://evernote.com",desc:"Note organization and capture",tags:["Notes","Capture"]},
@@ -363,13 +524,26 @@ const resources = {
 
 function renderResources() {
     const container = document.getElementById('linksContainer');
+    const indexContainer = document.getElementById('categoryIndex');
     let totalCount = 0;
     let html = '';
+    let indexHtml = '';
     
     for (const [category, items] of Object.entries(resources)) {
         totalCount += items.length;
+        const categoryId = category.toLowerCase().replace(/\s+/g, '-').replace(/&/g, 'and');
+        
+        // Build index
+        indexHtml += `
+            <a href="#${categoryId}" class="index-item">
+                <span class="index-item-name">${category}</span>
+                <span class="index-item-count">${items.length}</span>
+            </a>
+        `;
+        
+        // Build sections
         html += `
-        <section class="links-section">
+        <section class="links-section" id="${categoryId}">
             <h2 class="section-title">${category}</h2>
             <div class="links-grid">
                 ${items.map(item => `
@@ -392,6 +566,7 @@ function renderResources() {
     }
     
     container.innerHTML = html;
+    indexContainer.innerHTML = indexHtml;
     document.getElementById('totalResources').textContent = `📊 Total Resources: ${totalCount}`;
 }
 
