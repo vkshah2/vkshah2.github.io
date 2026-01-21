@@ -3,9 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Resources - Vinit</title>
+    <meta name="description" content="Comprehensive collection of websites, apps, and software for daily productivity">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Resources - Vinit</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💻</text></svg>">
+    <link rel="stylesheet" href="styles.css">
     <style>
+        /* Links page specific styles */
         :root {
             --primary: #92400e;
             --primary-dark: #78350f;
@@ -15,40 +19,18 @@
             --text-secondary: #6b7280;
             --border: #e5e7eb;
         }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            line-height: 1.6;
-            color: var(--text-primary);
-            background: #fafafa;
-        }
-        nav {
-            background: white;
-            border-bottom: 1px solid var(--border);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        .nav-container {
+
+        .search-section {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 1rem;
+            padding: 2rem 2rem 1rem;
         }
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary);
-            text-decoration: none;
-        }
+
         .search-container {
-            flex: 1;
-            max-width: 500px;
+            max-width: 600px;
+            margin: 0 auto;
         }
+
         #searchInput {
             width: 100%;
             padding: 0.75rem 1rem;
@@ -57,23 +39,28 @@
             font-size: 1rem;
             transition: border-color 0.3s;
         }
+
         #searchInput:focus {
             outline: none;
             border-color: var(--primary);
         }
+
         .page-header {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 3rem 2rem 2rem;
+            padding: 2rem 2rem 1rem;
         }
+
         .page-header h1 {
             font-size: 2.5rem;
             margin-bottom: 0.5rem;
         }
+
         .page-header p {
             font-size: 1.125rem;
             color: var(--text-secondary);
         }
+
         .stats {
             display: flex;
             gap: 2rem;
@@ -81,14 +68,17 @@
             font-size: 0.875rem;
             color: var(--text-secondary);
         }
+
         .links-container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 2rem;
         }
+
         .links-section {
             margin-bottom: 3rem;
         }
+
         .section-title {
             font-size: 1.75rem;
             margin-bottom: 1.5rem;
@@ -97,6 +87,7 @@
             align-items: center;
             gap: 0.5rem;
         }
+
         .section-title::before {
             content: '';
             width: 4px;
@@ -104,11 +95,13 @@
             background: var(--primary);
             border-radius: 2px;
         }
+
         .links-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 1.5rem;
         }
+
         .link-card {
             background: white;
             border: 1px solid var(--border);
@@ -118,17 +111,20 @@
             text-decoration: none;
             display: block;
         }
+
         .link-card:hover {
             transform: translateY(-4px);
             box-shadow: 0 10px 30px rgba(146, 64, 14, 0.15);
             border-color: var(--primary);
         }
+
         .link-header {
             display: flex;
             align-items: flex-start;
             gap: 1rem;
             margin-bottom: 1rem;
         }
+
         .link-icon {
             width: 48px;
             height: 48px;
@@ -140,29 +136,35 @@
             font-size: 1.5rem;
             flex-shrink: 0;
         }
+
         .link-info { flex: 1; }
+
         .link-title {
             font-size: 1.125rem;
             font-weight: 600;
             color: var(--text-primary);
             margin-bottom: 0.25rem;
         }
+
         .link-url {
             font-size: 0.875rem;
             color: var(--accent);
             word-break: break-all;
         }
+
         .link-description {
             color: var(--text-secondary);
             font-size: 0.9375rem;
             line-height: 1.5;
         }
+
         .link-tags {
             display: flex;
             gap: 0.5rem;
             flex-wrap: wrap;
             margin-top: 1rem;
         }
+
         .tag {
             background: var(--bg-secondary);
             color: var(--primary-dark);
@@ -171,48 +173,25 @@
             font-size: 0.75rem;
             font-weight: 600;
         }
-        footer {
-            margin-top: 4rem;
-            padding: 2rem;
-            text-align: center;
-            border-top: 1px solid var(--border);
-            background: white;
-        }
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-bottom: 1rem;
-        }
-        .social-links a {
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: 500;
-        }
-        footer p {
-            color: var(--text-secondary);
-            font-size: 0.875rem;
-        }
-        .hidden { display: none; }
-        
+
         .category-index {
             max-width: 1200px;
             margin: 2rem auto;
             padding: 0 2rem 2rem;
         }
-        
+
         .index-title {
             font-size: 1.75rem;
             margin-bottom: 1.5rem;
             color: var(--text-primary);
         }
-        
+
         .index-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             gap: 0.75rem;
         }
-        
+
         .index-item {
             background: white;
             border: 1px solid var(--border);
@@ -226,18 +205,18 @@
             align-items: center;
             gap: 0.5rem;
         }
-        
+
         .index-item:hover {
             background: var(--bg-secondary);
             border-color: var(--primary);
             transform: translateX(4px);
         }
-        
+
         .index-item-name {
             font-weight: 500;
             font-size: 0.9375rem;
         }
-        
+
         .index-item-count {
             margin-left: auto;
             font-size: 0.8125rem;
@@ -246,7 +225,9 @@
             padding: 0.125rem 0.5rem;
             border-radius: 0.75rem;
         }
-        
+
+        .hidden { display: none; }
+
         @media (max-width: 768px) {
             .page-header h1 { font-size: 2rem; }
             .links-grid { grid-template-columns: 1fr; }
@@ -256,39 +237,69 @@
     </style>
 </head>
 <body>
+    <!-- Skip to content link for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Navigation -->
     <nav>
         <div class="nav-container">
-            <a href="#" class="logo">My Resources</a>
-            <div class="search-container">
-                <input type="text" id="searchInput" placeholder="Search resources...">
+            <a href="index.html" class="logo">Vinit</a>
+            <div class="menu-toggle" onclick="toggleMenu()" aria-label="Toggle navigation menu">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
+            <ul class="nav-links" id="navLinks" role="navigation">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="https://vkshah2.blogspot.com" target="_blank" rel="noopener noreferrer">Blog</a></li>
+                <li><a href="links.html" class="active">Resources</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
         </div>
     </nav>
 
-    <div class="page-header">
-        <h1>My Digital Resource Library</h1>
-        <p>Comprehensive collection of websites, apps, and software for daily productivity</p>
-        <div class="stats">
-            <span id="totalResources">📊 Resources: Loading...</span>
-            <span>📁 36 Categories</span>
+    <main id="main-content">
+        <!-- Search Section -->
+        <div class="search-section">
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Search resources..." aria-label="Search resources">
+            </div>
         </div>
-    </div>
 
-    <div class="category-index">
-        <h2 class="index-title">📑 Category Index</h2>
-        <div class="index-grid" id="categoryIndex"></div>
-    </div>
+        <!-- Page Header -->
+        <div class="page-header">
+            <h1>My Digital Resource Library</h1>
+            <p>Comprehensive collection of websites, apps, and software for daily productivity</p>
+            <div class="stats">
+                <span id="totalResources">📊 Resources: Loading...</span>
+                <span>📁 36 Categories</span>
+            </div>
+        </div>
 
-    <div class="links-container" id="linksContainer"></div>
+        <!-- Category Index -->
+        <div class="category-index">
+            <h2 class="index-title">📑 Category Index</h2>
+            <div class="index-grid" id="categoryIndex"></div>
+        </div>
 
+        <!-- Links Container -->
+        <div class="links-container" id="linksContainer"></div>
+    </main>
+
+    <!-- Footer -->
     <footer>
         <div class="social-links">
-            <a href="https://github.com/vkshah2" target="_blank">GitHub</a>
-            <a href="https://X.com/vkshah2" target="_blank">Twitter</a>
-            <a href="mailto:vkshah2@gmail.com">Email</a>
+            <a href="https://github.com/vkshah2" target="_blank" rel="noopener noreferrer" aria-label="Visit my GitHub profile">GitHub</a>
+            <a href="https://X.com/vkshah2" target="_blank" rel="noopener noreferrer" aria-label="Follow me on Twitter/X">Twitter</a>
+            <a href="mailto:vkshah2@gmail.com?subject=Hi" aria-label="Send me an email">Email</a>
         </div>
         <p>&copy; 2025 Vinit K Shah. All rights reserved.</p>
     </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        ↑
+    </button>
 
     <script>
 const resources = {
@@ -533,7 +544,6 @@ function renderResources() {
         totalCount += items.length;
         const categoryId = category.toLowerCase().replace(/\s+/g, '-').replace(/&/g, 'and');
         
-        // Build index
         indexHtml += `
             <a href="#${categoryId}" class="index-item">
                 <span class="index-item-name">${category}</span>
@@ -541,7 +551,6 @@ function renderResources() {
             </a>
         `;
         
-        // Build sections
         html += `
         <section class="links-section" id="${categoryId}">
             <h2 class="section-title">${category}</h2>
@@ -586,5 +595,6 @@ document.getElementById('searchInput').addEventListener('input', (e) => {
 
 renderResources();
     </script>
+    <script src="main.js"></script>
 </body>
 </html>
