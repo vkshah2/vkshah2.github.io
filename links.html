@@ -272,7 +272,7 @@
             <p>Comprehensive collection of websites, apps, and software for daily productivity</p>
             <div class="stats">
                 <span id="totalResources">📊 Resources: Loading...</span>
-                <span>📁 36 Categories</span>
+                <span>📁 38 Categories</span>
             </div>
         </div>
 
@@ -303,13 +303,18 @@
 
     <script>
 const resources = {
-    "Google Products": [
+    "Search Engines": [
         {icon:"🔍",title:"Google Search",url:"google.com",link:"https://www.google.com",desc:"World's most popular search engine",tags:["Search","Essential"]},
+        {icon:"🦆",title:"DuckDuckGo",url:"duckduckgo.com",link:"https://duckduckgo.com",desc:"Privacy-focused search engine",tags:["Search","Privacy"]},
+        {icon:"🔷",title:"Bing",url:"bing.com",link:"https://www.bing.com",desc:"Microsoft's search engine with AI features",tags:["Search","AI"]},
+        {icon:"🌍",title:"Ecosia",url:"ecosia.org",link:"https://www.ecosia.org",desc:"Search engine that plants trees",tags:["Search","Eco-friendly"]},
+        {icon:"🔎",title:"Brave Search",url:"search.brave.com",link:"https://search.brave.com",desc:"Independent privacy search engine",tags:["Search","Privacy"]},
+        {icon:"🌐",title:"Startpage",url:"startpage.com",link:"https://www.startpage.com",desc:"Private search using Google results",tags:["Search","Privacy"]},
+        {icon:"🦊",title:"Qwant",url:"qwant.com",link:"https://www.qwant.com",desc:"European privacy-focused search",tags:["Search","Privacy"]}
+    ],
+    "Google Products": [
         {icon:"📧",title:"Gmail",url:"gmail.com",link:"https://mail.google.com",desc:"Email service with 15GB free storage",tags:["Email","Essential"]},
         {icon:"💾",title:"Google Drive",url:"drive.google.com",link:"https://drive.google.com",desc:"Cloud storage and file sharing",tags:["Cloud","Storage"]},
-        {icon:"📄",title:"Google Docs",url:"docs.google.com",link:"https://docs.google.com",desc:"Online document editor",tags:["Documents","Collaboration"]},
-        {icon:"📊",title:"Google Sheets",url:"sheets.google.com",link:"https://sheets.google.com",desc:"Online spreadsheet editor",tags:["Spreadsheet","Data"]},
-        {icon:"📽️",title:"Google Slides",url:"slides.google.com",link:"https://slides.google.com",desc:"Online presentation creator",tags:["Presentations","Slides"]},
         {icon:"📅",title:"Google Calendar",url:"calendar.google.com",link:"https://calendar.google.com",desc:"Schedule and event management",tags:["Calendar","Scheduling"]},
         {icon:"🗺️",title:"Google Maps",url:"maps.google.com",link:"https://maps.google.com",desc:"Navigation and location services",tags:["Maps","Navigation"]},
         {icon:"📷",title:"Google Photos",url:"photos.google.com",link:"https://photos.google.com",desc:"Photo storage and organization",tags:["Photos","Cloud"]},
@@ -325,7 +330,19 @@ const resources = {
     "Media & Entertainment": [
         {icon:"📺",title:"YouTube",url:"youtube.com",link:"https://www.youtube.com",desc:"World's largest video platform",tags:["Video","Learning"]},
         {icon:"🎵",title:"YouTube Music",url:"music.youtube.com",link:"https://music.youtube.com",desc:"Music streaming with personalized playlists",tags:["Music","Streaming"]},
-        {icon:"🎶",title:"Amazon Music",url:"music.amazon.com",link:"https://music.amazon.com",desc:"Amazon's music streaming service",tags:["Music","Streaming"]}
+        {icon:"🎶",title:"Amazon Music",url:"music.amazon.com",link:"https://music.amazon.com",desc:"Amazon's music streaming service",tags:["Music","Streaming"]},
+        {icon:"🍎",title:"Apple Music",url:"music.apple.com",link:"https://music.apple.com",desc:"Apple's music streaming service",tags:["Music","Streaming"]}
+    ],
+    "OTT Streaming": [
+        {icon:"🎬",title:"Netflix",url:"netflix.com",link:"https://www.netflix.com",desc:"Global streaming service for movies and shows",tags:["Streaming","Entertainment"]},
+        {icon:"🎥",title:"Amazon Prime Video",url:"primevideo.com",link:"https://www.primevideo.com",desc:"Movies, TV shows, and originals",tags:["Streaming","Prime"]},
+        {icon:"🌟",title:"Disney+ Hotstar",url:"hotstar.com",link:"https://www.hotstar.com",desc:"Disney, Marvel, Star content and sports",tags:["Streaming","Sports"]},
+        {icon:"📺",title:"Sony LIV",url:"sonyliv.com",link:"https://www.sonyliv.com",desc:"Sony shows, sports, and originals",tags:["Streaming","Sports"]},
+        {icon:"🎭",title:"ZEE5",url:"zee5.com",link:"https://www.zee5.com",desc:"Indian content and originals",tags:["Streaming","Indian"]},
+        {icon:"🎪",title:"Voot",url:"voot.com",link:"https://www.voot.com",desc:"Colors and Viacom18 content",tags:["Streaming","Indian"]},
+        {icon:"🎯",title:"JioCinema",url:"jiocinema.com",link:"https://www.jiocinema.com",desc:"Free streaming with sports and shows",tags:["Streaming","Free"]},
+        {icon:"🎬",title:"MX Player",url:"mxplayer.in",link:"https://www.mxplayer.in",desc:"Free streaming platform",tags:["Streaming","Free"]},
+        {icon:"🍿",title:"JustWatch",url:"justwatch.com",link:"https://www.justwatch.com",desc:"Search across all streaming platforms",tags:["Search","Streaming"]}
     ],
     "Finance & Investment": [
         {icon:"💰",title:"Google Finance",url:"google.com/finance",link:"https://www.google.com/finance",desc:"Real-time stock market data and news",tags:["Stocks","Markets"]},
@@ -338,7 +355,9 @@ const resources = {
         {icon:"💬",title:"WhatsApp",url:"web.whatsapp.com",link:"https://web.whatsapp.com",desc:"Most popular messaging app",tags:["Messaging","Essential"]},
         {icon:"✈️",title:"Telegram",url:"telegram.org",link:"https://web.telegram.org",desc:"Fast, secure messaging with channels",tags:["Messaging","Channels"]},
         {icon:"🎮",title:"Discord",url:"discord.com",link:"https://discord.com",desc:"Community voice and text chat",tags:["Community","Voice"]},
-        {icon:"🔒",title:"Signal",url:"signal.org",link:"https://signal.org",desc:"Privacy-focused encrypted messaging",tags:["Privacy","Encryption"]}
+        {icon:"🔒",title:"Signal",url:"signal.org",link:"https://signal.org",desc:"Privacy-focused encrypted messaging",tags:["Privacy","Encryption"]},
+        {icon:"💼",title:"Zoho Cliq",url:"cliq.zoho.com",link:"https://www.zoho.com/cliq",desc:"Team communication and collaboration",tags:["Business","Team Chat"]},
+        {icon:"🗨️",title:"Zoho Arattai",url:"arattai.zoho.com",link:"https://www.zoho.com/arattai",desc:"Simple team messaging app",tags:["Business","Messaging"]}
     ],
     "Reference & Knowledge": [
         {icon:"📚",title:"Wikipedia",url:"wikipedia.org",link:"https://www.wikipedia.org",desc:"Free online encyclopedia",tags:["Encyclopedia","Knowledge"]},
@@ -355,7 +374,10 @@ const resources = {
         {icon:"👗",title:"Myntra",url:"myntra.com",link:"https://www.myntra.com",desc:"Fashion and lifestyle shopping",tags:["Fashion","Clothing"]},
         {icon:"💰",title:"Meesho",url:"meesho.com",link:"https://www.meesho.com",desc:"Budget-friendly online shopping",tags:["Shopping","Budget"]},
         {icon:"🌐",title:"eBay",url:"ebay.com",link:"https://www.ebay.com",desc:"Global online auction and shopping",tags:["Marketplace","Auction"]},
-        {icon:"🏪",title:"AliExpress",url:"aliexpress.com",link:"https://www.aliexpress.com",desc:"International online retail service",tags:["Shopping","International"]}
+        {icon:"🏪",title:"AliExpress",url:"aliexpress.com",link:"https://www.aliexpress.com",desc:"International online retail service",tags:["Shopping","International"]},
+        {icon:"🥬",title:"Swiggy Instamart",url:"swiggy.com/instamart",link:"https://www.swiggy.com/instamart",desc:"Quick grocery delivery",tags:["Grocery","Quick Commerce"]},
+        {icon:"⚡",title:"Zepto",url:"zeptonow.com",link:"https://www.zeptonow.com",desc:"10-minute grocery delivery",tags:["Grocery","Quick Commerce"]},
+        {icon:"🛵",title:"BlinkIt",url:"blinkit.com",link:"https://www.blinkit.com",desc:"Instant grocery delivery",tags:["Grocery","Quick Commerce"]}
     ],
     "News & Media": [
         {icon:"📰",title:"Google News",url:"news.google.com",link:"https://news.google.com",desc:"Personalized news aggregator",tags:["News","Aggregator"]},
@@ -386,7 +408,21 @@ const resources = {
         {icon:"🎮",title:"Steam",url:"steampowered.com",link:"https://store.steampowered.com",desc:"PC gaming platform and store",tags:["Gaming","PC"]},
         {icon:"🎯",title:"Epic Games",url:"epicgames.com",link:"https://www.epicgames.com",desc:"Gaming platform with free games",tags:["Gaming","Free Games"]},
         {icon:"🕹️",title:"GOG",url:"gog.com",link:"https://www.gog.com",desc:"DRM-free game store",tags:["Gaming","DRM-free"]},
-        {icon:"🎲",title:"Xbox Game Pass",url:"xbox.com/gamepass",link:"https://www.xbox.com/xbox-game-pass",desc:"Gaming subscription service",tags:["Gaming","Subscription"]}
+        {icon:"🎲",title:"Xbox Game Pass",url:"xbox.com/gamepass",link:"https://www.xbox.com/xbox-game-pass",desc:"Gaming subscription service",tags:["Gaming","Subscription"]},
+        {icon:"🎮",title:"PlayStation",url:"playstation.com",link:"https://www.playstation.com",desc:"PlayStation console and games",tags:["Console","Sony"]},
+        {icon:"🎮",title:"Xbox",url:"xbox.com",link:"https://www.xbox.com",desc:"Xbox console and gaming",tags:["Console","Microsoft"]},
+        {icon:"🕹️",title:"Nintendo Switch",url:"nintendo.com/switch",link:"https://www.nintendo.com/switch",desc:"Nintendo Switch console and games",tags:["Console","Nintendo"]}
+    ],
+    "Cryptocurrency": [
+        {icon:"₿",title:"ZebPay",url:"zebpay.com",link:"https://www.zebpay.com",desc:"Indian crypto exchange platform",tags:["Crypto","Exchange"]},
+        {icon:"💱",title:"WazirX",url:"wazirx.com",link:"https://wazirx.com",desc:"India's leading crypto exchange",tags:["Crypto","Exchange"]},
+        {icon:"🔐",title:"Trust Wallet",url:"trustwallet.com",link:"https://trustwallet.com",desc:"Secure multi-coin crypto wallet",tags:["Crypto","Wallet"]},
+        {icon:"💼",title:"Exodus",url:"exodus.com",link:"https://www.exodus.com",desc:"Crypto wallet with built-in exchange",tags:["Crypto","Wallet"]},
+        {icon:"🔄",title:"CoinSwitch",url:"coinswitch.co",link:"https://coinswitch.co",desc:"Crypto trading and investment platform",tags:["Crypto","Trading"]},
+        {icon:"📊",title:"CoinMarketCap",url:"coinmarketcap.com",link:"https://coinmarketcap.com",desc:"Crypto price tracking and data",tags:["Crypto","Data"]},
+        {icon:"📈",title:"CoinGecko",url:"coingecko.com",link:"https://www.coingecko.com",desc:"Crypto market data and analytics",tags:["Crypto","Analytics"]},
+        {icon:"🌐",title:"Binance",url:"binance.com",link:"https://www.binance.com",desc:"Global crypto exchange",tags:["Crypto","Exchange"]},
+        {icon:"🔷",title:"Coinbase",url:"coinbase.com",link:"https://www.coinbase.com",desc:"User-friendly crypto exchange",tags:["Crypto","Exchange"]}
     ],
     "VPN & Privacy Tools": [
         {icon:"🔐",title:"ProtonVPN",url:"protonvpn.com",link:"https://protonvpn.com",desc:"Secure VPN with free tier",tags:["VPN","Privacy"]},
@@ -431,10 +467,12 @@ const resources = {
         {icon:"🏃",title:"Google Fit",url:"fit.google.com",link:"https://www.google.com/fit",desc:"Activity and health tracking",tags:["Fitness","Health"]},
         {icon:"🧘",title:"Headspace",url:"headspace.com",link:"https://www.headspace.com",desc:"Meditation and mindfulness",tags:["Meditation","Wellness"]},
         {icon:"😌",title:"Calm",url:"calm.com",link:"https://www.calm.com",desc:"Sleep and meditation app",tags:["Meditation","Sleep"]},
-        {icon:"💪",title:"MyFitnessPal",url:"myfitnesspal.com",link:"https://www.myfitnesspal.com",desc:"Calorie counter and fitness tracker",tags:["Fitness","Nutrition"]}
+        {icon:"💪",title:"MyFitnessPal",url:"myfitnesspal.com",link:"https://www.myfitnesspal.com",desc:"Calorie counter and fitness tracker",tags:["Fitness","Nutrition"]},
+        {icon:"🏃‍♂️",title:"Runkeeper",url:"runkeeper.com",link:"https://runkeeper.com",desc:"GPS running and workout tracking",tags:["Running","Fitness"]},
+        {icon:"🚴",title:"Strava",url:"strava.com",link:"https://www.strava.com",desc:"Social network for athletes",tags:["Fitness","Running","Cycling"]}
     ],
     "Reading & Books": [
-        {icon:"📚",title:"Kindle",url:"kindle.amazon.com",link:"https://www.amazon.com/kindle",desc:"Amazon's e-reader and bookstore",tags:["Ebooks","Reading"]},
+        {icon:"📚",title:"Kindle",url:"read.amazon.com",link:"https://read.amazon.com",desc:"Amazon's e-reader and bookstore",tags:["Ebooks","Reading"]},
         {icon:"📖",title:"Google Play Books",url:"play.google.com/books",link:"https://play.google.com/store/books",desc:"E-books and audiobooks",tags:["Ebooks","Audiobooks"]},
         {icon:"📕",title:"Goodreads",url:"goodreads.com",link:"https://www.goodreads.com",desc:"Book recommendations and reviews",tags:["Books","Community"]},
         {icon:"📚",title:"Libby",url:"libbyapp.com",link:"https://www.overdrive.com/apps/libby",desc:"Library e-books and audiobooks",tags:["Library","Ebooks"]}
@@ -446,11 +484,11 @@ const resources = {
         {icon:"🌐",title:"WordPress",url:"wordpress.com",link:"https://wordpress.com",desc:"Popular website and blog platform",tags:["CMS","Websites"]}
     ],
     "Learning & Memory": [
+        {icon:"🎓",title:"Udemy",url:"udemy.com",link:"https://www.udemy.com",desc:"Online courses on various subjects",tags:["Courses","Learning"]},
+        {icon:"📖",title:"Coursera",url:"coursera.org",link:"https://www.coursera.org",desc:"University courses and certifications",tags:["Courses","Certificates"]},
         {icon:"🧠",title:"Anki/AnkiDroid",url:"ankiweb.net",link:"https://ankiweb.net",desc:"Spaced repetition flashcards",tags:["Flashcards","Memory"]},
         {icon:"📚",title:"Quizlet",url:"quizlet.com",link:"https://quizlet.com",desc:"Flashcards and study games",tags:["Study","Education"]},
-        {icon:"🎯",title:"RemNote",url:"remnote.com",link:"https://www.remnote.com",desc:"Notes with built-in spaced repetition",tags:["Notes","SRS"]},
-        {icon:"🎓",title:"Udemy",url:"udemy.com",link:"https://www.udemy.com",desc:"Online courses on various subjects",tags:["Courses","Learning"]},
-        {icon:"📖",title:"Coursera",url:"coursera.org",link:"https://www.coursera.org",desc:"University courses and certifications",tags:["Courses","Certificates"]}
+        {icon:"🎯",title:"RemNote",url:"remnote.com",link:"https://www.remnote.com",desc:"Notes with built-in spaced repetition",tags:["Notes","SRS"]}
     ],
     "AI & Generative Tools": [
         {icon:"🤖",title:"ChatGPT",url:"chat.openai.com",link:"https://chat.openai.com",desc:"Advanced AI for writing and coding",tags:["AI Chat","Writing"]},
@@ -518,6 +556,7 @@ const resources = {
     "Email & Calendar": [
         {icon:"📧",title:"Gmail",url:"gmail.com",link:"https://mail.google.com",desc:"Google email service",tags:["Email","Essential"]},
         {icon:"📮",title:"Outlook",url:"outlook.com",link:"https://outlook.com",desc:"Microsoft email and calendar",tags:["Email","Calendar"]},
+        {icon:"💼",title:"Zoho Mail",url:"zoho.com/mail",link:"https://www.zoho.com/mail",desc:"Business email service",tags:["Email","Business"]},
         {icon:"📅",title:"Google Calendar",url:"calendar.google.com",link:"https://calendar.google.com",desc:"Schedule and event management",tags:["Calendar","Scheduling"]},
         {icon:"🔒",title:"Proton Mail",url:"proton.me",link:"https://proton.me/mail",desc:"Encrypted email service",tags:["Email","Privacy"]}
     ],
